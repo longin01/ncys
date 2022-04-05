@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<title>{NCCMS:$WebTitle}</title>
+<meta name="author" content="{NCCMS:$WebKeywords}">
+<meta name="keywords" content="{NCCMS:$WebKeywords}">
+<meta name="description" content="{NCCMS:$WebDescription}">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{NCCMS:$StylePath}/img/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{NCCMS:$StylePath}/img/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{NCCMS:$StylePath}/img/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="{NCCMS:$StylePath}/img/apple-touch-icon-57x57-precomposed.png">
+<link rel="shortcut icon" sizes="196x196" href="{NCCMS:$StylePath}/img/touch-icon-196x196.png">
+<link rel="shortcut icon" href="{NCCMS:$StylePath}/img/apple-touch-icon.png">
+<meta name="msapplication-TileImage" content="{NCCMS:$StylePath}/img/apple-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#222222">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/ionicons.min.css" media="all" type="text/css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/animate.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/materialize.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/swipebox.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/swiper.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/normalize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/main.css">
+<body>
+<div id="main" class="main">
+<div id="toolbar" class="primary-color z-depth-1">
+<div class="open-left" id="open-left" data-activates="slide-out-left"><i class="ion-android-menu"></i></div>
+<h1 class="title"><a href="{NCCMS:$WEBUrl}">{NCCMS:$WebTitle}</a></h1>
+<div class="open-right" id="open-right" data-activates="slide-out"><i class="ion-android-person"></i></div>
+</div>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="page animated fadein">      
+<div class="swiper-container swiper-slider">
+<div class="swiper-wrapper">
+{NCCMS-Index:Type=1,Count=3}
+<div class="swiper-slide"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:240px;object-fit:cover;"><div class="opacity-overlay"></div><div class="bottom center"><div class="bottom center"><p class="text-flow white-text m-0"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}">{NCCMS-Index:Name}</a></p></div></div></div>
+{/NCCMS-Index}
+</div>
+<div class="swiper-pagination"></div>
+</div>
+<div class="section center">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+</div>
+{NCCMS-Index:Type=2,Count=6}
+<div class="section center"><a href="{NCCMS-Index:DUrl}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+<div class="swiper-container testimonials">
+<div class="swiper-wrapper">
+{NCCMS-Index:Type=3,Count=4}
+<div class="swiper-slide center"><p class="testimonial">{NCCMS-Index:Name}</p><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;" onClick="location.href='{NCCMS-Index:DUrl}';"></div>
+{/NCCMS-Index} 
+</div>
+<div class="swiper-pagination"></div>
+</div>
+<div class="section center">
+<h2 class="heading">热门视频</h2>
+</div>
+<div class="controls right-align p-20 animated fadeinup delay-2">
+<button id="ChangeLayout" class="left">小图</button>
+<button class="filter" data-filter="all">全部</button>
+<button class="filter" data-filter=".category-1">热门</button>
+<button class="filter" data-filter=".category-2">推荐</button>
+<button class="filter" data-filter=".category-3">排行</button>
+</div>
+<div id="filter">
+<section id="image-filter">
+<div class="wrap small-width">
+<div data-pswp-uid="1" id="demo-gallery" class="demo-gallery">
+{NCCMS-Index:Type=7,Count=8}
+<a href="{NCCMS-Index:DUrl}" class="mix category-1"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}"></a>
+{/NCCMS-Index}
+{NCCMS-Index:Type=8,Count=8}
+<a href="{NCCMS-Index:DUrl}" class="mix category-2"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}"></a>
+{/NCCMS-Index}
+{NCCMS-Index:Type=9,Count=8}
+<a href="{NCCMS-Index:DUrl}" class="mix category-3"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}"></a>
+{/NCCMS-Index}
+</div>
+</div>
+</section>
+</div>
+<div class="clr"></div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+</div> 
+</div>
+<script src="{NCCMS:$StylePath}/js/helper.js"></script>
+<script src="{NCCMS:$StylePath}/js/HeadsUp.js"></script>
+<script src="{NCCMS:$StylePath}/js/jquery.smoothState.js"></script>
+<script src="{NCCMS:$StylePath}/js/chart.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/jquery.mixitup.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/jquery.swipebox.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/masonry.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/swiper.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/materialize.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/main.js"></script>
+<script src="{NCCMS:$StylePath}/js/modernizr-2.7.1.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

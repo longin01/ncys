@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>{NCCMS:$WebTitle}-{NCCMS-Radio-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Radio-List:Title}" />
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Radio-List:Title}" />
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="x-ua-compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/style.css?21042016">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/responsive.css">
+<link rel="shortcut icon" href="{NCCMS:$StylePath}/img/favicon.png">
+</head>
+<body>
+<div id="main">
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="content-container">
+<div class="page-header-container animated fadeInRight">
+<h2 class="page-title">{NCCMS-Radio-List:Title}</h2>
+<div class="redline"></div>
+</div>
+<div class="widget-box animated fadeInUp">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+{NCCMS-Radio-List:Count=21}
+<a href="{NCCMS-Radio-List:DUrl}" title="{NCCMS-Radio-List:Name}" class="small-listing-item"><div class="entry-thumb"><img src="{NCCMS-Radio-List:Pic}" alt="{NCCMS-Radio-List:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></div></a>
+{/NCCMS-Radio-List}
+<div class="clear"></div>
+</div>
+<div class="pagination" id="wr-page">
+<script src="{NCCMS:$StylePath}/js/jQuery.js"></script>
+<script src="{NCCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{NCCMS-Radio-List:totalPage}',
+wr_current: '{NCCMS-Radio-List:currentPage}',
+baseUrl: '{NCCMS-Radio-List:baseUrl}',
+})
+</script>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+</div>
+</div>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/materialize.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/slick.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.swipebox.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/custom.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

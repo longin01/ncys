@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width"/>
+<title>{NCCMS:$WebTitle}-{NCCMS-Pic-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Pic-List:Title}">
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Pic-List:Title}">
+<link rel="shortcut icon" type="image/png" href="{NCCMS:$StylePath}/images/logo.ico">
+<link href="{NCCMS:$StylePath}/css/home.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/default.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="mod">
+<div class="area">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img src="{NCCMS-TAd:Pic}" style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};"></a></p>
+{/NCCMS-TAd}
+<div class="mod-title">
+<div id="link" class="block"><div id="title">{NCCMS-Pic-List:Title}</div></div>
+</div>
+<div class="mod-row col5 clearfix">
+{NCCMS-Pic-List:Count=30}
+<dl><dt><a href="{NCCMS-Pic-List:DUrl}" title="{NCCMS-Pic-List:Name}"><img src="{NCCMS-Pic-List:Pic}" alt="{NCCMS-Pic-List:Name}"></a></dt></dl>
+{/NCCMS-Pic-List}
+</div>
+<div class="pagination" id="wr-page">
+<script src="{NCCMS:$StylePath}/js/jQuery.js"></script>
+<script src="{NCCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{NCCMS-Pic-List:totalPage}',
+wr_current: '{NCCMS-Pic-List:currentPage}',
+baseUrl: '{NCCMS-Pic-List:baseUrl}',
+})
+</script>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+</div>
+</div>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

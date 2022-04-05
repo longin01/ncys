@@ -1,0 +1,67 @@
+<!DOCTYPE HTML><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>{NCCMS:$WebTitle}</title>
+<meta name="author" content="{NCCMS:$WebKeywords}">
+<meta name="keywords" content="{NCCMS:$WebKeywords}">
+<meta name="description" content="{NCCMS:$WebDescription}">
+<link href="{NCCMS:$StylePath}/css/style.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/framework.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/owl.theme.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/swipebox.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/animate.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="menu-background"></div>
+<div class="slider-container full-bottom">
+<div class="homepage-slider" data-snap-ignore="true">
+{NCCMS-Index:Type=1,Count=4}
+<div><div class="overlay"></div><div class="homepage-slider-caption homepage-left-caption"><h3>{NCCMS-Index:Rand} 人喜欢</h3><p>{NCCMS-Index:Name}</p></div><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-image" style="height:240px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+</div>
+</div>
+<div class="content">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+<div class="decoration"></div>
+<h3 class="center-text">最新视频</h3>
+{NCCMS-Index:Type=2,Count=4}
+<div class="one-half-responsive"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-image" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+<h3 class="center-text">热门视频</h3>
+{NCCMS-Index:Type=3,Count=4}
+<div class="one-half-responsive"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-image" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+<h3 class="center-text">推荐视频</h3>
+{NCCMS-Index:Type=4,Count=4}
+<div class="one-half-responsive"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-image" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+</div>
+<div class="content">
+<a href="#" class="next-staff"></a>
+<a href="#" class="prev-staff"></a>
+<div class="staff-slider">
+{NCCMS-Index:Type=5,Count=6}
+<div class="staff-item"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-image" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+</div>
+<div class="decoration"></div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+</div>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jqueryui.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/framework.plugins.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/custom.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

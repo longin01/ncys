@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<title>{NCCMS:$WebTitle}-{NCCMS-Radio-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Radio-List:Title}">
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Radio-List:Title}">
+<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="HandheldFriendly" content="True">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/materialize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/font-awesome.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/normalize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.carousel.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.theme.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.transitions.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/fakeLoader.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/magnific-popup.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/style.css">
+<link rel="shortcut icon" href="{NCCMS:$StylePath}/img/favicon.png">
+</head>
+<body>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="pages section">
+<div class="container">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+<div class="blog">
+<div class="row">
+{NCCMS-Radio-List:Count=9}
+<div class="col s12"><div class="blog-content"><a href="{NCCMS-Radio-List:DUrl}" title="{NCCMS-Radio-List:Name}"><img src="{NCCMS-Radio-List:Pic}" alt="{NCCMS-Radio-List:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div></div>
+{/NCCMS-Radio-List}
+</div>
+<div class="row">
+<div class="col s12">
+<div class="pagination-blog">
+<ul id="wr-page">
+<script src="{NCCMS:$StylePath}/js/jQuery.js"></script>
+<script src="{NCCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{NCCMS-Radio-List:totalPage}',
+wr_current: '{NCCMS-Radio-List:currentPage}',
+baseUrl: '{NCCMS-Radio-List:baseUrl}',
+})
+</script>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+<script src="{NCCMS:$StylePath}/js/materialize.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/owl.carousel.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/fakeLoader.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/main.js"></script>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

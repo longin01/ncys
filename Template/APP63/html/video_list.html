@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<title>{NCCMS:$WebTitle}-{NCCMS-Video-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Video-List:Title}">
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Video-List:Title}">
+<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="HandheldFriendly" content="True">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/materialize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/font-awesome.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/normalize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/style.css">
+<link rel="shortcut icon" href="{NCCMS:$StylePath}/img/favicon.png">
+</head>
+<body>
+<div class="navbar-top">
+<div class="site-brand"><a href="{NCCMS:$WEBUrl}"><h1>{NCCMS:$WebTitle}</h1></a></div>
+<div class="side-nav-panel-right"><a href="#" data-activates="slide-out-right" class="side-nav-right"><i class="fa fa-bars"></i></a></div>
+</div>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="section">
+<div class="container top-70">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+{NCCMS-Video-List:Count=21}
+<div class="main-post"><div class="post-entry"><div class="post-image"><a href="{NCCMS-Video-List:DUrl}" title="{NCCMS-Video-List:Name}"><img src="{NCCMS-Video-List:Pic}" alt="{NCCMS-Video-List:Name}" class="responsive-img imgPlay" style="height:180px;object-fit:cover;"></a></div><div class="post-content"><p>{NCCMS-Video-List:Name}</p></div></div></div>
+{/NCCMS-Video-List}
+<div class="main-post">
+<div class="pagination-post">
+<ul id="wr-page">
+<script src="{NCCMS:$StylePath}/js/jQuery.js"></script>
+<script src="{NCCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{NCCMS-Video-List:totalPage}',
+wr_current: '{NCCMS-Video-List:currentPage}',
+baseUrl: '{NCCMS-Video-List:baseUrl}',
+})
+</script>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+<script src="{NCCMS:$StylePath}/js/materialize.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/main.js"></script>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

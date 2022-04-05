@@ -1,0 +1,118 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{NCCMS:$WebTitle}-{NCCMS:$ListName}-{NCCMS:$Name}视频介绍</title>
+	<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS:$ListName},{NCCMS:$Name}" />
+	<meta name="description" content="{NCCMS:$WebDescription},{NCCMS:$ListName},{NCCMS:$Name}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{NCCMS:$StylePath}/css/uikit.min.css" />
+    <link rel="stylesheet" href="{NCCMS:$StylePath}/css/common.min.css" />
+    <link rel="stylesheet" href="{NCCMS:$StylePath}/font/iconfont.css" />
+    <script src="{NCCMS:$StylePath}/js/jquery.js"></script>
+    <script src="{NCCMS:$StylePath}/js/uikit.min.js"></script>
+    <script src="{NCCMS:$StylePath}/js/accordion.min.js"></script>
+	<link rel="icon" type="image/png" href="{NCCMS:$StylePath}/images/logo.ico">
+</head>
+<body>
+    <div class="w1200 uk-clearfix">
+			{NCCMS-include:Header}
+				<div class="right-container">
+                <div class="list-Bts uk-margin-top uk-margin-bottom">
+                    <div class="Bt-head uk-clearfix uk-margin-bottom">
+                        <!-- 面包屑 -->
+                        <div class="bred uk-float-left">
+                            <p>
+                                <i class="icon iconfont icon-home"></i>
+                                <span>您当前位置：</span>
+                                <a href="#">{NCCMS:$ListName}</a>
+                                <i class="icon iconfont icon-right"></i>
+                                <a href="#" class="">{NCCMS:$Name}</a>
+                                <i class="icon iconfont icon-right"></i>
+                                <span class="right">种子介绍</span>
+                            </p>
+                            
+                        </div>
+                    </div>
+					<div class="Bt-content">
+                        <div class="read">
+                            <div class="read-img">
+                                <img src="{NCCMS:$Pic}" alt="">
+                            </div>
+
+                            <!-- 标题 -->
+                            <h3 class="uk-text-left uk-margin-bottom">{NCCMS:$Name}</h3>
+                            <!-- 影片信息 -->
+                            <div class="read-text uk-margin-top-remove uk-clearfix">
+                                <!-- 播放按钮 -->
+                                <div class="read-btn uk-margin-bottom uk-float-left">
+                                    <a href="{NCCMS:$CUrl}" class="uk-float-left uk-margin-large-right uk-button h-line ">种子下载</a>
+                                    <a href="{NCCMS:$CUrl}" class="uk-float-left uk-margin-large-right uk-button h-line ">备用种子</a>
+                                </div>
+                                <p class="uk-float-left uk-margin-large-right">种子分类:<span>{NCCMS:$ListName}</span></p>
+                                <p class="uk-float-left uk-margin-large-right">更新时间:<span>{NCCMS:$Time}</span></p>
+                            </div>
+                        </div>
+                        
+						<!-- 分割线 -->
+						<div class="line"><hr></div>
+						 {NCCMS-DCAd}
+							<li><a target="_blank"  href="{NCCMS-DCAd:Url}"><img style="width:{NCCMS-DCAd:Width};height:{NCCMS-DCAd:Height};margin-bottom:2px;" src="{NCCMS-DCAd:Pic}"></a></li> 
+						 {/NCCMS-DCAd}
+						<!-- 分割线 -->
+                    </div>					
+					<div class="list-Bts uk-margin-top uk-margin-bottom">
+                    <div class="video-head uk-clearfix">
+                        <h3 class="h3-color uk-float-left">{NCCMS:$ListName}推荐种子</h3>
+                        <a href="{NCCMS:$ListUrl}" class="more">{NCCMS:$ListName}更多推荐种子</a>
+                    </div>
+
+
+
+
+                    <div class="video-content uk-grid uk-grid-small">
+					
+
+							{NCCMS-Bt-Popular:Count=9}
+							<div class="uk-width-1-3 uk-margin-bottom">
+								<a href="{NCCMS-Bt-Popular:DUrl}" class="video-pic video-pic-h uk-display-block">
+								<img src="{NCCMS-Bt-Popular:Pic}" alt="{NCCMS-Bt-Popular:Name}"></a>
+								<div class="video-title">
+									<a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block">{NCCMS-Bt-Popular:Name}</a>
+									<div class="uk-clearfix uk-margin-small-top">
+										<p class="video-play uk-float-left"><i class="icon iconfont icon-play"></i><span>{NCCMS-Bt-Popular:Rand}</span></p>
+										<p class="video-like uk-float-left uk-margin-left"><i class="icon iconfont icon-like"></i><span>{NCCMS-Bt-Popular:Rand}</span></p>
+									</div>
+								</div>
+							</div>
+					{/NCCMS-Bt-Popular}						
+					
+
+
+
+
+                  
+                    </div>
+                </div>
+				<div class="line">
+                    <hr>
+                </div>
+
+
+
+        </div>				
+				
+				
+				
+				
+				
+				
+
+				 <!-- 视频结束 -->				 
+				</div> <!-- header.html闭合DIV -->
+			{NCCMS-include:Footer}
+		</div>	
+	</div>
+ </body>
+</html>
+

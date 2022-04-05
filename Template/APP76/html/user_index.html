@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{NCCMS:$StylePath}/img/splash-icon.png">
+<link rel="apple-touch-startup-image" href="{NCCMS:$StylePath}/img/splash-screen.png" media="screen and (max-device-width: 320px)">
+<link rel="apple-touch-startup-image" href="{NCCMS:$StylePath}/img/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)">
+<link rel="apple-touch-startup-image" sizes="640x1096" href="{NCCMS:$StylePath}/img/splash-screen@3x.png">
+<link rel="apple-touch-startup-image" sizes="1024x748" href="{NCCMS:$StylePath}/img/splash-screen-ipad-landscape" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : landscape)">
+<link rel="apple-touch-startup-image" sizes="768x1004" href="{NCCMS:$StylePath}/img/splash-screen-ipad-portrait.png" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : portrait)">
+<link rel="apple-touch-startup-image" sizes="1536x2008" href="{NCCMS:$StylePath}/img/splash-screen-ipad-portrait-retina.png" media="(device-width: 768px)	and (orientation: portrait)	and (-webkit-device-pixel-ratio: 2)">
+<link rel="apple-touch-startup-image" sizes="1496x2048" href="{NCCMS:$StylePath}/img/splash-screen-ipad-landscape-retina.png" media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)">
+<title>{NCCMS:$WebTitle}-会员中心</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords}">
+<meta name="description" content="{NCCMS:$WebDescription}">
+<link href="{NCCMS:$StylePath}/css/style.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/framework.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/owl.carousel.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/owl.theme.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/swipebox.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/colorbox.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- 页尾 开始 -->
+{NCCMS-include:Header}
+<!-- 页尾 结束 -->
+<div class="content">
+<div class="container no-bottom">
+<h4>会员中心</h4>
+<h4>免费次数 {NCCMS:$perDayNum} 次</h4>
+<h4>剩余播放 {NCCMS:$leftNum} 次</h4>
+<h4>今日邀请 {NCCMS:$todayInviteNum}</h4>
+<h4>总邀请数 {NCCMS:$inviteNum}</h4>
+<h4>邀请链接 {NCCMS:$inviteUrl}</h4>
+<div class="btn-submit full-bottom" onclick="copyToClipboard('国产小视频，复制去浏览器打开，直接就能看，不玩套路 {NCCMS:$inviteUrl}')">国产小视频，复制去浏览器打开，直接就能看，不玩套路 {NCCMS:$inviteUrl}</div>
+<div class="btn-submit full-bottom" onclick="copyToClipboard('河北父女门，上海姐弟门，山西祖孙三代乱交直播门，尽在 {NCCMS:$inviteUrl}')">河北父女门，上海姐弟门，山西祖孙三代乱交直播门，尽在 {NCCMS:$inviteUrl}</div>
+<div class="btn-submit full-bottom" onclick="copyToClipboard('上万部影片，小说，图片资源，包赢，包爽，包射出，快来 {NCCMS:$inviteUrl}')">上万部影片，小说，图片资源，包赢，包爽，包射出，快来 {NCCMS:$inviteUrl}</div>
+<div class="btn-submit full-bottom"><span style="text-align:center;font-size:16px;color:#ffc200;">↑ 点击上面复制 ↑</span></div>
+<div class="btn-submit full-bottom">推广链接发到，微博，QQ群，贴吧，论坛等地方，有人通过您的链接进入本站，增加 10 播放次数，无上限。</div>
+<script>
+function copyToClipboard(s) {
+if (window.clipboardData) {
+window.clipboardData.setData('text', s);
+} else {
+(function (s) {
+document.oncopy = function (e) {
+e.clipboardData.setData('text', s);
+e.preventDefault();
+document.oncopy = null;
+}
+})(s);
+document.execCommand('Copy');
+}
+alert("复制成功！（如果未复制，请长按选中复制）");
+}
+</script>
+{NCCMS-DCAd}
+<p style="margin:5px 0;"><a href="{NCCMS-DCAd:Url}" target="_blank"><img style="width:{NCCMS-DCAd:Width};height:{NCCMS-DCAd:Height};" src="{NCCMS-DCAd:Pic}"></a></p>
+{/NCCMS-DCAd}
+</div>
+<div class="decoration"></div>
+<div class="container no-bottom">
+{NCCMS-Index:Type=1,Count=3}
+<div class="portfolio-item-full-width"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-image" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=2,Count=3}
+<div class="portfolio-item-full-width"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-image" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=3,Count=3}
+<div class="portfolio-item-full-width"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-image" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+</div>
+<div class="decoration"></div>
+<div class="one-half-responsive">
+<h4>视频搜索</h4>
+<div class="container no-bottom">
+<div class="contact-form no-bottom">
+<form class="contactForm">
+<fieldset>
+<div class="formFieldWrap"><input type="text" name="search" placeholder="视频搜索" class="contactField requiredField"></div>
+<div class="formSubmitButtonErrorsWrap"><input type="submit" class="buttonWrap button button-green contactSubmitButton" value="搜索" ></div>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="decoration"></div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+</div>
+<div class="bottom-deco"></div>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jqueryui.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.swipebox.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/colorbox.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/snap.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/contact.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/custom.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/framework.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/framework.launcher.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

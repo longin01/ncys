@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-startup-image" href="{NCCMS:$StylePath}/img/apple-touch-startup-image-320x460.png">
+<title>{NCCMS:$WebTitle}-{NCCMS-Pic-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Pic-List:Title}">
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Pic-List:Title}">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/framework7.css">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/style.css">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/swipebox.css">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/font-awesome-animation.min.css">
+</head>
+<body id="mobile-device">
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="views">
+<div class="view view-main">
+<div class="pages">
+<div data-page="services" class="page no-toolbar no-navbar">
+<div class="page-content">
+<div class="navbarpages">
+<div class="navbar_home_link"><a href="{NCCMS:$WEBUrl}" class="external"><img src="{NCCMS:$WebLogo}" alt="{NCCMS:$WebTitle}"></a></div>						
+<div class="menu-icon"><a href="#" class="open-panel"><img src="{NCCMS:$StylePath}/img/menu.png" alt="菜单"></a></div>
+</div>
+<div class="section-bg-2">
+<div class="container">
+<div class=" heading-top"></div>
+<div class="center features-image-bottom">
+<a href="{NCCMS:$CUrl}" title="{NCCMS:$Name}" class="external"><img src="{NCCMS:$Pic}" alt="{NCCMS:$Name}" class="img-responsive imgPlay" style="height:260px;object-fit:cover;"></a>
+</div>
+<h3 class="left no-margin features-heading-bottom">{NCCMS:$Name}</h3>
+<p>{NCCMS:$Time}</p>
+<button class="button" onClick="location.href='{NCCMS:$CUrl}';">在线浏览</button>
+{NCCMS-DCAd}
+<p style="margin:5px 0;"><a href="{NCCMS-DCAd:Url}" target="_blank"><img style="width:{NCCMS-DCAd:Width};height:{NCCMS-DCAd:Height};" src="{NCCMS-DCAd:Pic}"></a></p>
+{/NCCMS-DCAd}   
+</div>
+<div class="container section-bg-2">
+<div class="section-heading-top"></div>
+<div class="row">
+{NCCMS-Pic-Popular:Count=6}
+<div class="col-33 marketing-row-bottom res-common-full"><p class="left content-bg white-text-separate"><a href="{NCCMS-Pic-Popular:DUrl}" title="{NCCMS-Pic-Popular:Name}" class="external"><img src="{NCCMS-Pic-Popular:Pic}" alt="{NCCMS-Pic-Popular:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></p></div>
+{/NCCMS-Pic-Popular}
+</div>
+<div class="row clearfix">
+<h5>视频搜索</h5>
+<form class="contact">
+<div class="col-100 tablet-100 contact-div"><input class="col-90 tablet-100 clearfix" type="text" name="search" placeholder="视频搜索"></div>
+<button class="button">搜索</button>
+</form>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->						
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>	
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/framework7.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/my-app.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.swipebox.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.filterizr.js"></script>	
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

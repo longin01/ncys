@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<title>{NCCMS:$WebTitle}</title>
+<meta name="author" content="{NCCMS:$WebKeywords}">
+<meta name="keywords" content="{NCCMS:$WebKeywords}">
+<meta name="description" content="{NCCMS:$WebDescription}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-startup-image" href="{NCCMS:$StylePath}/img/apple-touch-startup-image-320x460.png">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/framework7.css">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/style.css">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/swipebox.css">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{NCCMS:$StylePath}/css/font-awesome-animation.min.css">
+</head>
+<body id="mobile-device">
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="views">
+<div class="view view-main">
+<div class="pages">
+<div data-page="services" class="page no-toolbar no-navbar">
+<div class="page-content">
+<div class="navbarpages">
+<div class="navbar_home_link"><a href="{NCCMS:$WEBUrl}" class="external"><img src="{NCCMS:$WebLogo}" alt="{NCCMS:$WebTitle}"></a></div>						
+<div class="menu-icon"><a href="#" class="open-panel"><img src="{NCCMS:$StylePath}/img/menu.png" alt="菜单"></a></div>
+</div>
+<div class="section-bg-2">
+<div class="container">
+<div class=" heading-top"></div>
+<div class="center features-image-bottom">
+<a href="{NCCMS:$CUrl}" title="{NCCMS:$Name}" class="external"><img src="{NCCMS:$Pic}" alt="{NCCMS:$Name}" class="img-responsive imgPlay" style="height:260px;object-fit:cover;"></a>
+</div>
+<h3 class="left no-margin features-heading-bottom">会员中心</h3>
+<h3 class="left no-margin features-heading-bottom" style="font-size:18px;text-align:left;">剩余播放 {NCCMS:$leftNum} 次</h3>
+<h3 class="left no-margin features-heading-bottom" style="font-size:18px;text-align:left;">今日邀请 {NCCMS:$todayInviteNum}</h3>
+<h3 class="left no-margin features-heading-bottom" style="font-size:18px;text-align:left;">总邀请数 {NCCMS:$inviteNum}</h3>
+<h3 class="left no-margin features-heading-bottom" style="font-size:18px;text-align:left;" id="c">邀请链接 {NCCMS:$inviteUrl}</h3>
+<div style="margin:5px 0;"><button type="submit" class="btn-submit">复制您的邀请链接给您的好友，增加播放次数。</button></div>
+<script src="{NCCMS:$StylePath}/js/clipboard.min.js"></script>
+<script>
+var c = document.getElementById("c");
+var s=c.innerHTML;
+var clipboard = new Clipboard('.btn-submit', {
+text: function() {
+return s;
+}
+});
+clipboard.on('success', function(e) {
+alert("复制成功,分享给您的好友，增加播放次数。");
+});
+clipboard.on('error', function(e) {
+console.log(e);
+});
+</script>
+{NCCMS-DCAd}
+<p style="margin:5px 0;"><a href="{NCCMS-DCAd:Url}" target="_blank"><img style="width:{NCCMS-DCAd:Width};height:{NCCMS-DCAd:Height};" src="{NCCMS-DCAd:Pic}"></a></p>
+{/NCCMS-DCAd}   
+</div>
+<div class="container section-bg-2">
+<div class="section-heading-top"></div>
+<div class="row">
+{NCCMS-Index:Type=1,Count=10}
+<div class="col-33 marketing-row-bottom res-common-full"><p class="left content-bg white-text-separate"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}" class="external"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></p></div>
+{/NCCMS-Index}
+</div>
+<div class="row clearfix">
+<h5>视频搜索</h5>
+<form class="contact">
+<div class="col-100 tablet-100 contact-div"><input class="col-90 tablet-100 clearfix" type="text" name="search" placeholder="视频搜索"></div>
+<button class="button">搜索</button>
+</form>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->						
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>	
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/framework7.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/my-app.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.swipebox.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.filterizr.js"></script>	
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

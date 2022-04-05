@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<title>{NCCMS:$WebTitle}-{NCCMS-Book-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Book-List:Title}">
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Book-List:Title}">
+<meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="True">
+<link rel="shortcut icon" href="{NCCMS:$StylePath}/img/favicon.png">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/font-awesome.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/materialize.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/slick.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/slick-theme.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.carousel.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.theme.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.transitions.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/fakeLoader.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/lightbox.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/style.css">
+</head>
+<body>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="blog app-pages app-section">
+<div class="container">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+{NCCMS-Book-List:Count=21}
+<div class="entry"><a href="{NCCMS-Book-List:DUrl}" title="{NCCMS-Book-List:Name}"><img src="{NCCMS-Book-List:Pic}" alt="{NCCMS-Book-List:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a>
+<div class="content"><h5><a href="{NCCMS-Book-List:DUrl}" title="{NCCMS-Book-List:Name}">{NCCMS-Book-List:Name}</a></h5></div></div>
+{/NCCMS-Book-List}
+<div class="pagination">
+<ul id="wr-page">
+<script src="{NCCMS:$StylePath}/js/jQuery.js"></script>
+<script src="{NCCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{NCCMS-Book-List:totalPage}',
+wr_current: '{NCCMS-Book-List:currentPage}',
+baseUrl: '{NCCMS-Book-List:baseUrl}',
+})
+</script>
+</ul>
+</div>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+<script src="{NCCMS:$StylePath}/js/materialize.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/slick.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/owl.carousel.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/custom.js"></script>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

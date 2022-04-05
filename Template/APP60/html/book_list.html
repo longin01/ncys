@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<title>{NCCMS:$WebTitle}-{NCCMS-Book-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Book-List:Title}">
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Book-List:Title}">
+<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="HandheldFriendly" content="True">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/materialize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/line-awesome.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/line-awesome-font-awesome.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/normalize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.carousel.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.theme.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.transitions.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/fakeLoader.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/animate.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/magnific-popup.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/style.css">
+<link rel="shortcut icon" href="{NCCMS:$StylePath}/img/favicon.png">
+</head>
+<body>
+<div id="fakeLoader"></div>
+<div class="navbar-top">
+<div class="site-brand"><a href="{NCCMS:$WEBUrl}"><h1>{NCCMS-Book-List:Title}</h1></a></div>
+<div class="side-nav-panel-right"><a href="#" data-activates="slide-out-right" class="side-nav-left"><i class="fa fa-user"></i></a></div>
+</div>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="pages section animated zoomIn">
+<div class="container">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+<div class="blog">
+{NCCMS-Book-List:Count=21}
+<div class="row"><div class="col s12"><div class="blog-content"><a href="{NCCMS-Book-List:DUrl}" title="{NCCMS-Book-List:Name}"><img src="{NCCMS-Book-List:Pic}" alt="{NCCMS-Book-List:Name}" class="imgPlay" style="height:220px;object-fit:cover;"></a><div class="blog-detailt"><h5><a href="{NCCMS-Book-List:DUrl}" title="{NCCMS-Book-List:Name}">{NCCMS-Book-List:Name}</a></h5></div></div></div></div>
+{/NCCMS-Book-List}
+<div class="row">
+<div class="col s12">
+<div class="pagination-blog">
+<ul id="wr-page">
+<script src="{NCCMS:$StylePath}/js/jQuery.js"></script>
+<script src="{NCCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{NCCMS-Book-List:totalPage}',
+wr_current: '{NCCMS-Book-List:currentPage}',
+baseUrl: '{NCCMS-Book-List:baseUrl}',
+})
+</script>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+<script src="{NCCMS:$StylePath}/js/materialize.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/owl.carousel.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/fakeLoader.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/animatedModal.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/main.js"></script>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

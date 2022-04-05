@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{NCCMS:$WebTitle}-{NCCMS-Book-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Book-List:Title}">
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Book-List:Title}">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="{NCCMS:$StylePath}/img/favicon.png">
+<link href="{NCCMS:$StylePath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/line-awesome.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/ionicons.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+<link href="{NCCMS:$StylePath}/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+<link href="{NCCMS:$StylePath}/css/weather-icons.min.css" rel="stylesheet">
+<link href="{NCCMS:$StylePath}/css/morris.css" rel="stylesheet">
+<link href="{NCCMS:$StylePath}/css/owl.carousel.min.css" type="text/css" rel="stylesheet">
+<link href="{NCCMS:$StylePath}/css/style.css" rel="stylesheet">
+<link href="{NCCMS:$StylePath}/css/responsive.css" rel="stylesheet">
+</head>
+<body>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="course_listhome mt-30">
+<div class="container-fluid">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+<div class="row">
+<div class="col-12 mb-3">
+<div class="heading_view"><h2>{NCCMS-Book-List:Title}</h2></div>
+</div>
+<div class="col-12 mb-4">
+<div class="card border-none">
+<div class="card-body p-0">
+{NCCMS-Book-List:Count=21}
+<div class="media brdr-b mb-3 pb-3"><div class="course_picture"><a href="{NCCMS-Book-List:DUrl}" title="{NCCMS-Book-List:Name}"><img src="{NCCMS-Book-List:Pic}" alt="{NCCMS-Book-List:Name}" class="align-self-center mr-3 imgPlay" style="height:200px;object-fit:cover;"></a></div></div>
+{/NCCMS-Book-List}
+</div>
+</div>
+<div class="pagination" id="wr-page">
+<script src="{NCCMS:$StylePath}/js/jQuery.js"></script>
+<script src="{NCCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{NCCMS-Book-List:totalPage}',
+wr_current: '{NCCMS-Book-List:currentPage}',
+baseUrl: '{NCCMS-Book-List:baseUrl}',
+})
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+</div>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/popper.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/owl.carousel.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/jquery.dcjqaccordion.2.7.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/custom.js"></script>
+<script type="text/javascript" src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{NCCMS:$WebTitle}-{NCCMS-Pic-List:Title}</title>
+<meta name="author" content="{NCCMS:$WebTitle}">
+<meta name="keywords" content="{NCCMS:$WebKeywords},{NCCMS-Pic-List:Title}">
+<meta name="description" content="{NCCMS:$WebDescription},{NCCMS-Pic-List:Title}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/jqeury.mobile.theme.min.css"/>
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/jquery.mobile.icons.min.css"/>
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/jquery.mobile.min.css"/>
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.carousel.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.theme.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/style.css"/>
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/font-awesome.min.css">
+</head>
+<body>
+<div data-role="page" data-theme='a'>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div data-role="header" data-tap-toggle="false" data-theme='a'>
+<a href="#sidebar" data-role="none"><img src="{NCCMS:$StylePath}/img/menu-icon.png" id="header-menu-icon"/></a>
+<h1 class="header-title"><a href="{NCCMS:$WEBUrl}" style="color:#232323;">{NCCMS-Pic-List:Title}</a></h1>
+<a href="#" data-role="none" id="a-search"><img src="{NCCMS:$StylePath}/img/search-icon.png" id="header-search-icon"/></a>
+</div>
+<div data-role="content" class="blog">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+{NCCMS-Pic-List:Count=21}
+<div class="item"><a href="{NCCMS-Pic-List:DUrl}" title="{NCCMS-Pic-List:Name}"><img src="{NCCMS-Pic-List:Pic}" alt="{NCCMS-Pic-List:Name}" class="fullwidth"></a></div>
+{/NCCMS-Pic-List}
+<div class="pagination" id="wr-page">
+<script src="{NCCMS:$StylePath}/js/jQuery.js"></script>
+<script src="{NCCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{NCCMS-Pic-List:totalPage}',
+wr_current: '{NCCMS-Pic-List:currentPage}',
+baseUrl: '{NCCMS-Pic-List:baseUrl}',
+})
+</script>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+</div>
+<script src="{NCCMS:$StylePath}/js/jquery.mobile.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/owl.carousel.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/theia.js"></script>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{NCCMS:$WebTitle}</title>
+<meta name="author" content="{NCCMS:$WebKeywords}">
+<meta name="keywords" content="{NCCMS:$WebKeywords}">
+<meta name="description" content="{NCCMS:$WebDescription}">
+<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="True">
+<link rel="shortcut icon" href="{NCCMS:$StylePath}/img/favicon.png">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/font-awesome.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/materialize.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/slick.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/slick-theme.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.carousel.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.theme.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/owl.transitions.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/lightbox.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/style.css">
+</head>
+<body>
+<div class="navbar">
+<div class="container">
+<div class="panel-control-left"><a href="#" data-activates="slide-out-left" class="sidenav-control"><i class="fa fa-bars"></i></a></div>
+<div class="site-title"><a href="{NCCMS:$WEBUrl}" class="logo"><h1>{NCCMS:$WebTitle}</h1></a></div>
+<div class="panel-control-right"><a href="{NCCMS:$UserUrl}"><i class="fa fa-user"></i></a></div>
+</div>
+</div>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="slider-slick app-pages">
+{NCCMS-Index:Type=1,Count=4}
+<div class="slider-entry"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:280px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+</div>
+<div class="offers">
+<div class="container">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+<div class="row">
+{NCCMS-Index:Type=2,Count=4}
+<div class="col s12"><div class="entry"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=3,Count=4}
+<div class="col s12"><div class="entry"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div></div>
+{/NCCMS-Index}
+</div>
+</div>
+</div>
+<div class="note app-section"><div class="container"><h5>最新视频</h5></div></div>
+<div class="features app-section">
+<div class="container">
+{NCCMS-Index:Type=4,Count=4}
+<div class="row"><div class="col s12"><div class="entry"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=5,Count=4}
+<div class="row"><div class="col s12"><div class="entry"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+</div>
+</div>
+<div class="note-second app-section"><div class="container"><h5>热门视频</h5></div></div>
+<div class="process app-section app-bg-dark">
+<div class="container">
+<div class="row">
+{NCCMS-Index:Type=7,Count=6}
+<div class="col s12 col-left"><div class="entry"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=8,Count=6}
+<div class="col s12 col-left"><div class="entry"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div></div>
+{/NCCMS-Index}
+</div>
+</div>
+</div>
+<div class="note-second app-section"><div class="container"><h5>推荐视频</h5></div></div>
+<div class="testimonial">
+<div class="container">
+<div id="testimonial" class="owl-carousel owl-theme">
+{NCCMS-Index:Type=9,Count=4}
+<div class="item"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=10,Count=4}
+<div class="item"><a href="{NCCMS-Index:DUrl}" title="{NCCMS-Index:Name}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:200px;object-fit:cover;"></a></div>
+{/NCCMS-Index}
+</div>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+<script src="{NCCMS:$StylePath}/js/materialize.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/slick.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/owl.carousel.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/custom.js"></script>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>

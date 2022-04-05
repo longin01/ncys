@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<title>{NCCMS:$WebTitle}</title>
+<meta name="author" content="{NCCMS:$WebKeywords}">
+<meta name="keywords" content="{NCCMS:$WebKeywords}">
+<meta name="description" content="{NCCMS:$WebDescription}">
+<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="HandheldFriendly" content="True">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/materialize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/font-awesome.min.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/normalize.css">
+<link rel="stylesheet" href="{NCCMS:$StylePath}/css/style.css">
+<link rel="shortcut icon" href="{NCCMS:$StylePath}/img/favicon.png">
+</head>
+<body>
+<div class="navbar-top">
+<div class="site-brand"><a href="{NCCMS:$WEBUrl}"><h1>{NCCMS:$WebTitle}</h1></a></div>
+<div class="side-nav-panel-right"><a href="#" data-activates="slide-out-right" class="side-nav-right"><i class="fa fa-bars"></i></a></div>
+</div>
+<!-- 页头 开始 -->
+{NCCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="slider">
+<ul class="slides">
+{NCCMS-Index:Type=1,Count=4}
+<li><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="imgPlay" style="height:260px;object-fit:cover;"><div class="caption slider-content center-align"><button type="button" class="btn button-default" onClick="location.href='{NCCMS-Index:DUrl}';">在线播放</button></div></li>
+{/NCCMS-Index}
+</ul>
+</div>
+<div class="section">
+<div class="container">
+{NCCMS-TAd}
+<p style="margin:5px 0;"><a href="{NCCMS-TAd:Url}" target="_blank"><img style="width:{NCCMS-TAd:Width};height:{NCCMS-TAd:Height};" src="{NCCMS-TAd:Pic}"></a></p>
+{/NCCMS-TAd}
+{NCCMS-Index:Type=2,Count=3}
+<div class="main-post"><div class="post-entry"><div class="post-image"><a href="{NCCMS-Index:DUrl}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-img imgPlay" style="height:180px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=3,Count=3}
+<div class="main-post"><div class="post-entry"><div class="post-image"><a href="{NCCMS-Index:DUrl}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-img imgPlay" style="height:180px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=4,Count=3}
+<div class="main-post"><div class="post-entry"><div class="post-image"><a href="{NCCMS-Index:DUrl}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-img imgPlay" style="height:180px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=5,Count=3}
+<div class="main-post"><div class="post-entry"><div class="post-image"><a href="{NCCMS-Index:DUrl}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-img imgPlay" style="height:180px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=7,Count=3}
+<div class="main-post"><div class="post-entry"><div class="post-image"><a href="{NCCMS-Index:DUrl}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-img imgPlay" style="height:180px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=7,Count=3}
+<div class="main-post"><div class="post-entry"><div class="post-image"><a href="{NCCMS-Index:DUrl}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-img imgPlay" style="height:180px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+{NCCMS-Index:Type=8,Count=3}
+<div class="main-post"><div class="post-entry"><div class="post-image"><a href="{NCCMS-Index:DUrl}"><img src="{NCCMS-Index:Pic}" alt="{NCCMS-Index:Name}" class="responsive-img imgPlay" style="height:180px;object-fit:cover;"></a></div></div></div>
+{/NCCMS-Index}
+</div>
+</div>
+<!-- 页尾 开始 -->
+{NCCMS-include:Footer}
+<!-- 页尾 结束 -->
+<script src="{NCCMS:$StylePath}/js/materialize.min.js"></script>
+<script src="{NCCMS:$StylePath}/js/main.js"></script>
+<script src="{NCCMS:$StylePath}/js/language.js"></script>
+</body>
+</html>
