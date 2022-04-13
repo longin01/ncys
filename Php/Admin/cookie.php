@@ -1,7 +1,7 @@
 <?php
 session_start();
 header('Content-Type:text/html;charset=utf-8');
-include("../NCSQL/Admin/Security/AdminUser.php");
+include("../TTSQL/Admin/Security/AdminUser.php");
 
 if ($_SESSION['username'] == NULL && $_SESSION['username'] != USERNAME) {
 	

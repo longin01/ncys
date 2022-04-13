@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>{TTCMS:$WebTitle}分类{TTCMS-Video-List:Title}在线视频列表页面</title>
+	<meta name="keywords" content="{TTCMS:$WebKeywords},{TTCMS-Video-List:Title}" />
+	<meta name="description" content="{TTCMS:$WebDescription},{TTCMS-Video-List:Title}" />
+	<link rel="icon" type="image/png" href="{TTCMS:$StylePath}/img/logo.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="index, follow" />
+	<meta name="revisit-after" content="1 days" />
+	<script src="{TTCMS:$StylePath}/js/jquery.min.js"></script>
+	<script src="{TTCMS:$StylePath}/js/uikit.min.js"></script>
+	<link rel="stylesheet" href="{TTCMS:$StylePath}/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="{TTCMS:$StylePath}/css/iconfont.css" /> 
+	<link rel="stylesheet" href="{TTCMS:$StylePath}/css/m.style.css">
+</head>
+<body>
+{TTCMS-include:Header}
+<div class="v-type " style="margin-top: 0rem; ">
+    <div class="v-type-title uk-clearfix"><div><h3 class="type-h3">在线视频{TTCMS-Video-List:Title}列表页</h3></div></div>
+            <ul class="v-list uk-clearfix uk-display-block">
+			{TTCMS-Video-List:Count=8}
+                <li class="v-item v-item">
+                    <a href="{TTCMS-Video-List:DUrl}" class="uk-display-block">
+                        <div class="v-cover lazy" data-original="{TTCMS-Video-List:Pic}"></div>
+                        <h3 class="v-title">{TTCMS-Video-List:Name}</h3>
+                        <div class="uk-clearfix v-icon">
+                            <p class="uk-float-left uk-margin-right">
+                                <i class="icon iconfont icon-play"></i>
+                                <span>{TTCMS-Video-List:Rand}</span>
+                            </p>
+                            <p class="uk-float-left uk-margin-top-remove">
+                                <i class="icon iconfont icon-zan"></i>
+                                <span>{TTCMS-Video-List:Rand}</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>						
+			{/TTCMS-Video-List}
+            </ul>
+            <div id="wr-page"></div>
+            <script src="{TTCMS:$StylePath}/js/page.js?t=1"></script>
+            <script type="text/javascript">
+                $("#wr-page").wrpage({
+                    pagesize: '{TTCMS-Video-List:totalPage}',
+                    wr_current: '{TTCMS-Video-List:currentPage}',
+                    baseUrl: '{TTCMS-Video-List:baseUrl}',
+                })
+            </script>
+
+
+
+</div>
+{TTCMS-include:Footer}	
+ </body>
+</html>
+

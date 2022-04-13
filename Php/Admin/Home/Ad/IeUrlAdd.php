@@ -5,7 +5,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,7 +83,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
 
 if (isset($_POST['submit']) && isset($_POST['IeUrlId']) && isset($_POST['IeUrlName'])  && isset($_POST['IeUrlWebUrl'])) {
 function post_input($data){$data = stripslashes($data);$data = htmlspecialchars($data);return $data;}
-$AdminIeUrl = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+$AdminIeUrl = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
 $IeUrlId				=	post_input($_POST["IeUrlId"]);//友链排序
 $IeUrlName				=	post_input($_POST["IeUrlName"]);//友链标题
 $IeUrlWebUrl			=	post_input($_POST["IeUrlWebUrl"]);//友链链接
@@ -97,7 +97,7 @@ $AdminIeUrlMod['IeUrlName'] = $IeUrlName;
 $AdminIeUrlMod['IeUrlWebUrl'] = $IeUrlWebUrl;
 $AdminIeUrlMod['IeUrlState'] = $IeUrlState;
 $UPDATE=INSERT($AdminIeUrl,$AdminIeUrlMod); 
-$file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
 fwrite($file,json_encode($UPDATE));
 fclose($file);  
 

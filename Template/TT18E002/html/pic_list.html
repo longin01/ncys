@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>{TTCMS:$WebTitle}-{TTCMS-Pic-List:Title}</title>
+<meta name="author" content="{TTCMS:$WebTitle}">
+<meta name="keywords" content="{TTCMS:$WebKeywords},{TTCMS-Pic-List:Title}">
+<meta name="description" content="{TTCMS:$WebDescription},{TTCMS-Pic-List:Title}">
+<link rel="icon" type="image/png" href="{TTCMS:$StylePath}/img/logo.ico">
+<link href="{TTCMS:$StylePath}/css/style.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="{TTCMS:$StylePath}/js/common.js"></script>
+<!--[if lt IE 9]>
+<script src="{TTCMS:$StylePath}/js/html5shiv.min.js"></script>
+<script src="{TTCMS:$StylePath}/js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<!-- 页头 开始 -->
+{TTCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="topone clearfix"></div>
+<div class="ads">
+{TTCMS-TAd}
+<p style="margin:10px 0;"><a href="{TTCMS-TAd:Url}" target="_blank"><img style="width:{TTCMS-TAd:Width};height:{TTCMS-TAd:Height};margin-bottom:2px;" src="{TTCMS-TAd:Pic}"></a></p>
+{/TTCMS-TAd}
+</div>
+<div class="main">
+<div class="index-tj clearfix">
+<div class="index-tj-l">
+<h1 class="title index-color clearfix">{TTCMS-Pic-List:Title}</h1>
+<ul>
+{TTCMS-Pic-List:Count=30}
+<li class="p2 m1"><a href="{TTCMS-Pic-List:DUrl}" title="{TTCMS-Pic-List:Name}" class="link-hover"><img src="{TTCMS-Pic-List:Pic}" alt="{TTCMS-Pic-List:Name}"><span class="video-bg"></span><span class="lzbz">
+<p class="name">{TTCMS-Pic-List:Name}</p></span></a></li>
+{/TTCMS-Pic-List}
+</ul>
+</div>
+<div class="pagination" id="wr-page">
+<script src="{TTCMS:$StylePath}/js/jquery.js"></script>
+<script src="{TTCMS:$StylePath}/js/page.js?t=1"></script>
+<script type="text/javascript">
+$("#wr-page").wrpage({
+pagesize: '{TTCMS-Pic-List:totalPage}',
+wr_current: '{TTCMS-Pic-List:currentPage}',
+baseUrl: '{TTCMS-Pic-List:baseUrl}',
+})
+</script>
+</div>
+</div>
+</div>
+<!-- 页尾 开始 -->
+{TTCMS-include:Footer}
+<!-- 页尾 结束 -->
+</body>
+</html>
+

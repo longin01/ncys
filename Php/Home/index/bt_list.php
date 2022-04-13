@@ -1,10 +1,14 @@
 <?php
 //$GetMb_id
 //$GetMb_page
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_id.'.txt'),true);
+if (file_exists('./TTSQL/Home/'.$GetMb_id.'.txt')) {
+    $MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_id.'.txt'),true);
+}else{
+    $MYSQLVODS =[];
+}
 //$MYSQLVODS=PAGE($MYSQLVODS,$GetMb_page,'5');
 $count=count($MYSQLVODS)-1;
-$tpl->assign('BtTypeNCSQL', $MYSQLVODS);
+$tpl->assign('BtTypeTTSQL', $MYSQLVODS);
 $tpl->assign('BtTypePage', $GetMb_page);
 $tpl->assign('BtTypeId', $GetMb_page);
 

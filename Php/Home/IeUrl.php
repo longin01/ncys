@@ -1,6 +1,6 @@
 <?php
 $AdminIeUrl	=NULL;
-$AdminIeUrlS = json_decode(file_get_contents("./NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+$AdminIeUrlS = json_decode(file_get_contents("./TTSQL/Admin/Ad/AdminIeUrl.php"),true);
 array_multisort(array_column($AdminIeUrlS,'IeUrlId'),SORT_DESC,$AdminIeUrlS);//SOTR_ASC,SOTR_DESC
 $count 	= count($AdminIeUrlS);
 for ($x=0; $x<=$count-1; $x++) {

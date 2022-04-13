@@ -43,7 +43,7 @@ $tpl->assign('TopWebAd', $AdminTop);
 $tpl->assign('VideoWebAd', $AdminVideo);
 //对联广告，移动底部悬浮广告，统计代码
 
-define('NCCMS',$_SERVER['DOCUMENT_ROOT']);
+define('JCCMS',$_SERVER['DOCUMENT_ROOT']);
 
 $AdS=$AdS.$WebCnzz;
 $tpl->assign('WebAdS', $AdS);
@@ -57,7 +57,7 @@ $tpl->assign('Header',$WEB_Static.'/html/header');
 $tpl->assign('Footer',$WEB_Static.'/html/footer');
 
 //分类
-$vodtype = json_decode(file_get_contents('./NCSQL/type.php'),true);
+$vodtype = json_decode(file_get_contents('./TTSQL/type.php'),true);
 $tpl->assign('数据分类',$vodtype);
 
 $this_WebMoban =NULL;

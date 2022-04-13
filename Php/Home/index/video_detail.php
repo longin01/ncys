@@ -3,11 +3,11 @@
 //$GetMb_page
 
 
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_page.'.txt'),true);
+$MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_page.'.txt'),true);
 
 $VideoTypeName=$vodtype[$GetMb_page];
 $VideoTypeName=$VideoTypeName['name'];
-$tpl->assign('VideoTypeNCSQL', $MYSQLVODS);
+$tpl->assign('VideoTypeTTSQL', $MYSQLVODS);
 $tpl->assign('VideoType', $GetMb_page);
 $tpl->assign('ListName', $VideoTypeName);
 $tpl->assign('ListUrl',$Host1.'video_list'.$Host2.$GetMb_page.$Host3.'1'.$Host4);

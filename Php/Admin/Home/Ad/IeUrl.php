@@ -7,7 +7,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,7 +51,7 @@ function post_input($data){$data = stripslashes($data);$data = htmlspecialchars(
 $Php = post_input($_GET["Php"]);	
 $Cd = post_input($_GET["Cd"]);	
 if($Php =="Home/Ad/IeUrl" || $Cd !== NULL ){
-$AdminIeUrlCd = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+$AdminIeUrlCd = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
 array_multisort(array_column($AdminIeUrlCd,'IeUrlId'),SORT_DESC,$AdminIeUrlCd);//SORT_ASC,SORT_DESC
 
     $Cdcount 	= count($AdminIeUrlCd);
@@ -82,7 +82,7 @@ $AdminIeUrlMod['IeUrlState'] = $IeUrlState;
 
 
 $UPDATE=UPDATE($AdminIeUrlCd,$Cd,$AdminIeUrlMod); 
-$file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
 fwrite($file,json_encode($UPDATE));
 fclose($file);  
 
@@ -140,7 +140,7 @@ fclose($file);
 									
 										<?php
 
-										$AdminIeUrl = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+										$AdminIeUrl = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
 										array_multisort(array_column($AdminIeUrl,'IeUrlId'),SORT_DESC,$AdminIeUrl);//SORT_ASC,SORT_DESC
 										$count 	= count($AdminIeUrl);
 										for ($x=0; $x<=$count-1; $x++) {
@@ -226,7 +226,7 @@ $AdminIeUrlMod['IeUrlState'] = $IeUrlState[$x];
 $AdminIeUrlMod['TestIeUrlState'] = $TestIeUrlState[$x];
 $AdminIeUrlINSERT=INSERT($AdminIeUrlINSERT,$AdminIeUrlMod);
 }
-$file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
 fwrite($file,json_encode($AdminIeUrlINSERT));
 fclose($file);
 
@@ -254,11 +254,11 @@ if ($_FILES["file"]["error"] <= 0)
     }
 
     //合并原有友链
-    $AdminIeUrl = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+    $AdminIeUrl = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
     array_multisort(array_column($AdminIeUrl,'IeUrlId'),SORT_DESC,$AdminIeUrl);//SORT_ASC,SORT_DESC
     $AdminIeUrl = array_merge($AdminIeUrl,$res);
 
-    $file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+    $file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
     fwrite($file,json_encode($AdminIeUrl));
     fclose($file);
 }
@@ -284,11 +284,11 @@ if (isset($_GET['Php']) && isset($_GET['Id']) ) {
     $Php = post_input($_GET["Php"]);
     $Id = post_input($_GET["Id"]);
     if($Php =="Home/Ad/IeUrl" || $Id !== NULL ){
-        $AdminIeUrl = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+        $AdminIeUrl = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
         array_multisort(array_column($AdminIeUrl,'IeUrlId'),SORT_DESC,$AdminIeUrl);//SORT_ASC,SORT_DESC
 
         include('../Php/Public/Mysql.php');
-        $file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+        $file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
         fwrite($file,json_encode(DELETE($AdminIeUrl,$Id)));
         fclose($file);
         ?>
@@ -315,7 +315,7 @@ $Show = post_input($_GET["Show"]);
 
 if($Php =="Home/Ad/IeUrl" || $Id !== NULL ){
     include('../Php/Public/Mysql.php');
-    $AdminIeUrl = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+    $AdminIeUrl = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
     array_multisort(array_column($AdminIeUrl,'IeUrlId'),SORT_DESC,$AdminIeUrl);//SORT_ASC,SORT_DESC
 
     $IeUrl		=	$AdminIeUrl[$Id];
@@ -325,7 +325,7 @@ if($Php =="Home/Ad/IeUrl" || $Id !== NULL ){
     $AdminIeUrlMod['TestIeUrlState'] = $IeUrl['TestIeUrlState'];
     $AdminIeUrlMod['IeUrlState'] = $Show;
     $UPDATE=UPDATE($AdminIeUrl,$Id,$AdminIeUrlMod);
-    $file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+    $file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
     fwrite($file,json_encode($UPDATE));
     fclose($file);
     ?>
@@ -348,11 +348,11 @@ if($Php =="Home/Ad/IeUrl" || $Id !== NULL ){
 <?php
 //导出
 if (isset($_GET['Php']) && isset($_GET['export']) ) {
-    $AdminIeUrlCd = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+    $AdminIeUrlCd = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
     array_multisort(array_column($AdminIeUrlCd,'IeUrlId'),SORT_DESC,$AdminIeUrlCd);//SORT_ASC,SORT_DESC
 
     if ($AdminIeUrlCd){
-        $file = fopen("../NCSQL/Admin/Ad/friendLink.txt","w");
+        $file = fopen("../TTSQL/Admin/Ad/friendLink.txt","w");
         foreach ($AdminIeUrlCd as $value){
             $urlTxt ='';
             $IeUrlId =isset($value['IeUrlId'])?$value['IeUrlId']:'';
@@ -365,7 +365,7 @@ if (isset($_GET['Php']) && isset($_GET['export']) ) {
     }
     ?>
 
-    <a id="downLoad" href="/NCSQL/Admin/Ad/friendLink.txt" download ></a>
+    <a id="downLoad" href="/TTSQL/Admin/Ad/friendLink.txt" download ></a>
     <script language="javascript">
         var   link = document.getElementById('downLoad');
         link.click();

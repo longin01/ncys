@@ -6,7 +6,7 @@ include('./Php/Public/Page.php');
 /***引入辅助行数文件***/
 include('./Php/Public/Helper.php');
 /***检测当日数据是否更新***/
-include('./Php/Home/NCSQL.php');
+include('./Php/Home/TTSQL.php');
 /***解析GET路由URL***/
 include('./Php/Home/GET.php');
 /***验证终端-$WEB_PC_MO PC or MO***/

@@ -3,11 +3,11 @@
 //$GetMb_page
 
 
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_page.'.txt'),true);
+$MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_page.'.txt'),true);
 
 $PicTypeName=$vodtype[$GetMb_page];
 $PicTypeName=$PicTypeName['name'];
-$tpl->assign('PicTypeNCSQL', $MYSQLVODS);
+$tpl->assign('PicTypeTTSQL', $MYSQLVODS);
 $tpl->assign('PicType', $GetMb_page);
 $tpl->assign('ListName', $PicTypeName);
 $tpl->assign('ListUrl',$Host1.'pic_list'.$Host2.$GetMb_page.$Host3.'1'.$Host4);

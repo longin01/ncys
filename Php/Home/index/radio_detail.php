@@ -3,11 +3,11 @@
 //$GetMb_page
 
 
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_page.'.txt'),true);
+$MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_page.'.txt'),true);
 
 $RadioTypeName=$vodtype[$GetMb_page];
 $RadioTypeName=$RadioTypeName['name'];
-$tpl->assign('RadioTypeNCSQL', $MYSQLVODS);
+$tpl->assign('RadioTypeTTSQL', $MYSQLVODS);
 $tpl->assign('RadioType', $GetMb_page);
 $tpl->assign('ListName', $RadioTypeName);
 $tpl->assign('ListUrl',$Host1.'radio_list'.$Host2.$GetMb_page.$Host3.'1'.$Host4);

@@ -5,7 +5,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -113,7 +113,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
 
 if (isset($_POST['submit']) && isset($_POST['TopId']) && isset($_POST['TopWebUrl']) && isset($_POST['TopRemarks'])  && isset($_POST['TopPicUrl'])  && isset($_POST['TopState'])&& isset($_POST['TopPicUrlWidth'])&& isset($_POST['TopPicUrlHeight'])) {
 function post_input($data){$data = stripslashes($data);$data = htmlspecialchars($data);return $data;}
-$AdminTop = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminTop.php"),true);
+$AdminTop = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminTop.php"),true);
 $TopId			=	post_input($_POST["TopId"]);//广告排序id
 $TopWebUrl			=	post_input($_POST["TopWebUrl"]);//广告链接
 $TopRemarks			=	post_input($_POST["TopRemarks"]);//广告备注
@@ -136,7 +136,7 @@ $AdminTopMod['TopState'] = $TopState;
 $AdminTopMod['TopPicUrlWidth'] = $TopPicUrlWidth;
 $AdminTopMod['TopPicUrlHeight'] = $TopPicUrlHeight;	
 $UPDATE=INSERT($AdminTop,$AdminTopMod); 
-$file = fopen("../NCSQL/Admin/Ad/AdminTop.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminTop.php","w");
 fwrite($file,json_encode($UPDATE));
 fclose($file);  
 

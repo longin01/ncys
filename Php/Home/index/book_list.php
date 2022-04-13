@@ -1,11 +1,15 @@
 <?php
 //echo $GetMb_id;
 //$GetMb_page
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_id.'.txt'),true);
 
 
+if (file_exists('./TTSQL/Home/'.$GetMb_id.'.txt')) {
+    $MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_id.'.txt'),true);
+}else{
+    $MYSQLVODS =[];
+}
 $count=count($MYSQLVODS)-1;
-$tpl->assign('BookTypeNCSQL', $MYSQLVODS);
+$tpl->assign('BookTypeTTSQL', $MYSQLVODS);
 $tpl->assign('BookTypePage', $GetMb_page);
 $tpl->assign('BookTypeId', $GetMb_page);
 

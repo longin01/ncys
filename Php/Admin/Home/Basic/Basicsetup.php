@@ -5,7 +5,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +38,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
                     <div class="am-g tpl-amazeui-form">
 <?php
 /***读取数据库中的数据并且给予变量中***/
-$AdminBasic = json_decode(file_get_contents("../NCSQL/Admin/Basic/AdminBasic.php"),true);
+$AdminBasic = json_decode(file_get_contents("../TTSQL/Admin/Basic/AdminBasic.php"),true);
 
 $WebMobanPC		=	$AdminBasic['WebMobanPC'];
 $WebMobanWAP	=	$AdminBasic['WebMobanWAP'];
@@ -76,7 +76,7 @@ $Basic['WebGongaoOpen']		=	post_input($_POST['WebGongaoOpen']);
 $Basic['WebDescription']	=	post_input($_POST['WebDescription']);
 $Basic['WebLogo']			=	post_input($_POST['WebLogo']);
 $Basic['WebEmail']			=	post_input($_POST['WebEmail']);
-$file = fopen("../NCSQL/Admin/Basic/AdminBasic.php","w");
+$file = fopen("../TTSQL/Admin/Basic/AdminBasic.php","w");
 fwrite($file,json_encode($Basic));
 fclose($file);    
 ?>
@@ -99,9 +99,7 @@ window.location.href="?Php=Home/Basic/Basicsetup"
 											<?php echo $Template;?>
 
 										</select> 
-										<a href="https://bbs.nccms.net/?thread-5.htm" target="_blank">
-											<bas class="am-btn am-btn-primary">模板预览图</bas>
-										</a>
+									
                                     </div>
 								</div>
 								<div class="am-form-group">
@@ -111,9 +109,7 @@ window.location.href="?Php=Home/Basic/Basicsetup"
 										  <option value="<?php echo $WebMobanWAP;?>">目前模板：<?php echo $WebMobanWAP;?></option>
 											<?php echo $Template;?>
 										</select> 
-										<a href="https://bbs.nccms.net/?thread-5.htm" target="_blank">
-											<bas class="am-btn am-btn-primary">模板预览图</bas>
-										</a>
+									
                                     </div>
 								</div>								
                                 <div class="am-form-group">

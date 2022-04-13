@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="../Static/Admin/Css/amazeui.min.css" />
     <link rel="stylesheet" href="../Static/Admin/Css/admin.css">
     <link rel="stylesheet" href="../Static/Admin/Css/app.css">
-    <script src="../Static/Admin/Css/echarts.min.js"></script>
   </head>
   
   <body data-type="index">
@@ -32,9 +31,9 @@
           <li></ol>
         <div class="tpl-content-scope">
           <div class="note note-info">
-            <h3>NCCMS 专注X站程序
+            <h3>TTCMS 专注X站程序
               <span class="close" data-close="note"></span></h3>
-			  <script src="https://api.9ccmsapi.com/NCCMS18/Js/AdminHome.js" charset='utf-8'></script>
+			  
 			</div>
         </div>
         <div class="am-u-md-6 am-u-sm-12 row-mb"></div>

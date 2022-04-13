@@ -1,6 +1,6 @@
 <?php
 
-include("../NCSQL/Admin/Security/AdminUser.php");
+include("../TTSQL/Admin/Security/AdminUser.php");
 	if(IPPASS != NULL){
         if(strpos(IPPASS,$_SERVER["REMOTE_ADDR"]) === false ){
             echo'<script language="javascript"> alert("您的IP为外来入侵者不在IP白名单内！无法访问！"); window.location.href="?" </script>';exit();
@@ -14,7 +14,7 @@ include("../NCSQL/Admin/Security/AdminUser.php");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>奶茶CMS管理中心</title>
+  <title>探探cms管理中心</title>
   <meta name="description" content="这是一个 index 页面">
   <meta name="keywords" content="index">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,17 +33,14 @@ include("../NCSQL/Admin/Security/AdminUser.php");
 			<div class="myapp-login-logo-text"><span> 登录</span> <i class="am-icon-skyatlas"></i></div>
 		</div>
 		<div class="login-font">
-			<i>NCCMS </i></span>
+			<i>TTCMS </i> or <span> 51CKX</span>
 		</div>
 		<div class="am-u-sm-10 login-am-center">
 			<form class="am-form" action="" method="POST">
 				<fieldset>
 					<div class="am-form-group"><input type="password" name="username" class="" id="doc-ipt-email-1" placeholder="输入登录账户"></div>
 					<div class="am-form-group"><input type="password" name="password"  class="" id="doc-ipt-pwd-1" placeholder="输入登录密码"></div>
-					<div class="am-form-group ver-code">
-                      <input type="password" name="yzm"  class="" id="doc-ipt-pwd-1" placeholder="输入验证码内容">
-                        <a><img id="yzm"  onClick="javascript:myyzm();"  alt="点击换一张"/></a>
-					</div>				
+								
 					<p><button name="submit" type="submit" class="am-btn am-btn-default">登录</button></p>
 				</fieldset>
 			</form>
@@ -54,41 +51,34 @@ include("../NCSQL/Admin/Security/AdminUser.php");
   <script src="../Static/Admin/Js/amazeui.min.js"></script>
   <script src="../Static/Admin/Js/app.js"></script>
 
-  <script>
-      function myyzm(){
-          $('#yzm').attr('src','../Php/Admin/yzm.php?nocache='+Math.random());
-      }
-      $(window).load(function() {
-          myyzm()
-      });
-  </script>
+
 </body>
 </html>
 <?php
 header("Content-type: text/html; charset=utf-8");
 date_default_timezone_set('PRC');
 session_start();	
-include("../NCSQL/Admin/Security/AdminUser.php");
+include("../TTSQL/Admin/Security/AdminUser.php");
 
 
-if(USERNAME == '9ccms'){
+if(USERNAME == 'TTCMS'){
 	echo'<script language="javascript"> alert("您当前使用的是默认账号！请尽早修改默认账号换上更加复杂的账号，避免被有心人入侵"); </script>';	
 }
 
-if(PASSWORD == '9ccms'){
+if(PASSWORD == 'TTCMS'){
 	echo'<script language="javascript"> alert("您当前使用的是默认密码！请尽早修改默认密码换上更加复杂的密码，避免被有心人入侵");  </script>';
 }		
-if (isset($_POST['submit']) && isset($_POST['username'])&& isset($_POST['password'])&& isset($_POST['yzm']) ) {
+if (isset($_POST['submit']) && isset($_POST['username'])&& isset($_POST['password']) ) {
 	function post_input($data){$data = stripslashes($data);$data = htmlspecialchars($data);return $data;}
 	$username = post_input($_POST["username"]);	
 	$password = post_input($_POST["password"]);	
 	$yzm = post_input($_POST["yzm"]);
 
-    $wornIpNameDir = '../NCSQL/Admin/ErrorIp';
-    $wornIpName = '../NCSQL/Admin/ErrorIp/'.$_SERVER["REMOTE_ADDR"].'lock';
-    if(!is_dir('../NCSQL/Admin/ErrorIp'))
+    $wornIpNameDir = '../TTSQL/Admin/ErrorIp';
+    $wornIpName = '../TTSQL/Admin/ErrorIp/'.$_SERVER["REMOTE_ADDR"].'lock';
+    if(!is_dir('../TTSQL/Admin/ErrorIp'))
     {
-        mkdir('../NCSQL/Admin/ErrorIp');
+        mkdir('../TTSQL/Admin/ErrorIp');
     }
 
     //指定ip错误次数增加
@@ -115,9 +105,7 @@ if (isset($_POST['submit']) && isset($_POST['username'])&& isset($_POST['passwor
 	if(file_exists("../lock.lock")){
 		echo'<script language="javascript"> alert("三次错误进入安全模式，请删除根目录lock.lock文件，恢复正常使用。"); window.location.href="?" </script>';exit();
 	}
-    if($_SESSION['yzm'] != $yzm){
-        echo'<script language="javascript"> alert("验证码错误"); window.location.href="?" </script>';increaseIpLock($wornIpName);exit();
-    }
+    
 
 	if(USERNAME != $username ){
 		echo'<script language="javascript"> alert("账号错误"); window.location.href="?" </script>';increaseIpLock($wornIpName);exit();

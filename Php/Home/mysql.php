@@ -1,26 +1,74 @@
 <?php
-/***è¯»å–æ•°æ®åº“ä¸­çš„æ•°æ®å¹¶ä¸”ç»™äºˆå˜é‡ä¸­***/
-$AdminBasic = json_decode(file_get_contents("./NCSQL/Admin/Basic/AdminBasic.php"),true);
-//PCæ¨¡ç‰ˆ
+/***¶ÁÈ¡Êý¾Ý¿âÖÐµÄÊý¾Ý²¢ÇÒ¸øÓè±äÁ¿ÖÐ***/
+$AdminBasic = json_decode(file_get_contents("./TTSQL/Admin/Basic/AdminBasic.php"),true);
+//PCÄ£°æ
 $WebMobanPC		=	$AdminBasic['WebMobanPC'];
-//æ‰‹æœºæ¨¡ç‰ˆ
+//ÊÖ»úÄ£°æ
 $WebMobanWAP	=	$AdminBasic['WebMobanWAP'];
-//ç½‘ç«™æ ‡é¢˜
+//ÍøÕ¾±êÌâ
 $WebTitle		=	$AdminBasic['WebTitle'];
-//ç½‘ç«™å…³é”®å­—
+//ÍøÕ¾¹Ø¼ü×Ö
 $WebKeywords	=	$AdminBasic['WebKeywords'];
-//ç½‘ç«™æè¿°
+//ÍøÕ¾ÃèÊö
 $WebDescription	=	$AdminBasic['WebDescription'];
-//ç½‘ç«™å…¬å…±
+//ÍøÕ¾¹«¹²
 $WebGongao	=	$AdminBasic['WebGongao'];
-//ç½‘ç«™å…¬å…±å¼€å…³
+//ÍøÕ¾¹«¹²¿ª¹Ø
 $WebGongaoOpen	=	$AdminBasic['WebGongaoOpen'];
-//ç½‘ç«™logoé“¾æŽ¥
+//ÍøÕ¾logoÁ´½Ó
 $WebLogo		=	$AdminBasic['WebLogo'];
-//ç½‘ç«™é‚®ç®±
+//ÍøÕ¾ÓÊÏä
 $WebEmail		=	$AdminBasic['WebEmail'];
-//ç½‘ç«™ç»Ÿè®¡
-$WebCnzz = file_get_contents("./NCSQL/Admin/Basic/AdminStatistics.php");
+//ÍøÕ¾Í³¼Æ
+$WebCnzz = file_get_contents("./TTSQL/Admin/Basic/AdminStatistics.php");
+//Õ¾Èº²å¼þ
+//$webss=explode(".",$_SERVER['HTTP_HOST']);$ws=$webss['1'].'.'.$webss['2'];
+
+
+
+
+$webniubi='1';//1:Ö÷ÓòÃûÕ¾Èº2:×ÓÓòÃûÕ¾Èº
+
+if($webniubi=='1'){
+	if(strpos($_SERVER ['HTTP_HOST'],'www.') !== false){ 
+	preg_match("#\.(.*)#i","http://".$_SERVER ['HTTP_HOST'],$webss);$webss = $webss[1];	
+	}else{
+	 $webss=$_SERVER['HTTP_HOST'];
+	}	
+}
+
+if($webniubi=='2'){
+	 $webss=$_SERVER['HTTP_HOST'];
+}
+
+
+
+$file ="./TTSQL/Admin/Plug/Zhanqun/index.php";
+
+if(file_exists($file))
+{
+$AdminWebDomain = json_decode(file_get_contents($file),true);
+
+foreach ($AdminWebDomain as $value) {
+	if($webss==$value['WebDomain']){
+	$WebDomain=$value['WebDomain'];
+	$WebMobanPC=$value['WebMobanPC'];
+	$WebMobanWAP=$value['WebMobanWAP'];
+	$WebTitle=$value['WebTitle'];
+	$WebKeywords=$value['WebKeywords'];
+	$WebDescription=$value['WebDescription'];
+	$WebLogo=$value['WebLogo'];
+	$WebEmail=$value['WebEmail'];	
+		}
+
+ }
+}
+else
+{
+    //²»´æÔÚÕ¾ÈºÊý¾ÝÎÄ¼þ
+}
+
+
 
 
 

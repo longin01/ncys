@@ -1,0 +1,101 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{TTCMS:$WebTitle}-{TTCMS:$ListName}-{TTCMS:$Name}视频介绍</title>
+	<meta name="keywords" content="{TTCMS:$WebKeywords},{TTCMS:$ListName},{TTCMS:$Name}" />
+	<meta name="description" content="{TTCMS:$WebDescription},{TTCMS:$ListName},{TTCMS:$Name}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{TTCMS:$StylePath}/css/uikit.min.css" />
+    <link rel="stylesheet" href="{TTCMS:$StylePath}/css/common.min.css" />
+    <link rel="stylesheet" href="{TTCMS:$StylePath}/font/iconfont.css" />
+    <script src="{TTCMS:$StylePath}/js/jquery.js"></script>
+    <script src="{TTCMS:$StylePath}/js/uikit.min.js"></script>
+    <script src="{TTCMS:$StylePath}/js/accordion.min.js"></script>
+    <link rel="icon" type="image/png" href="{TTCMS:$StylePath}/images/logo.ico">
+</head>
+<body>
+    <div class="w1200 uk-clearfix">
+			{TTCMS-include:Header}
+				<div class="right-container">
+                <div class="list-videos uk-margin-top uk-margin-bottom">
+                    <div class="video-head uk-clearfix uk-margin-bottom">
+                        <!-- 面包屑 -->
+                        <div class="bred uk-float-left">
+                            <p>
+                                <i class="icon iconfont icon-home"></i>
+                                <span>您当前位置：</span>
+                                <a href="#">{TTCMS:$ListName}</a>
+                                <i class="icon iconfont icon-right"></i>
+                                <a href="#" class="">{TTCMS:$Name}</a>
+                                <i class="icon iconfont icon-right"></i>
+                                <span class="right">小说内容</span>
+                            </p>
+                            
+                        </div>
+                    </div>
+					<div class="video-content art-content">
+                        <h3 class="uk-text-center">{TTCMS:$Name}<!---{TTCMS:$Time}--></h3>
+                        <div>{TTCMS:$Play}</div>
+                    </div>
+						<!-- 分割线 -->
+						<div class="line"><hr></div>
+						 {TTCMS-DCAd}
+							<li><a target="_blank"  href="{TTCMS-DCAd:Url}"><img style="width:{TTCMS-DCAd:Width};height:{TTCMS-DCAd:Height};margin-bottom:2px;" src="{TTCMS-DCAd:Pic}"></a></li> 
+						 {/TTCMS-DCAd}
+						<!-- 分割线 -->					
+					<div class="list-videos uk-margin-top uk-margin-bottom">
+                    <div class="video-head uk-clearfix">
+                        <h3 class="h3-color uk-float-left">推荐小说</h3>
+                        <a href="{TTCMS:$ListUrl}" class="more">更多推荐小说</a>
+                    </div>
+
+
+
+
+                    <div class="video-content uk-grid uk-grid-small">
+					
+
+							{TTCMS-Book-Popular:Count=9}
+							<div class="uk-width-1-3 uk-margin-bottom">
+								<a href="{TTCMS-Book-Popular:DUrl}"><span class="live-tag"></span>
+									<img src="{TTCMS-Book-Popular:Pic}" alt="{TTCMS-Book-Popular:Name}"></a>
+								<div class="video-title">
+									<a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block">{TTCMS-Book-Popular:Name}</a>
+									<div class="uk-clearfix uk-margin-small-top">
+										<p class="video-play uk-float-left"><i class="icon iconfont icon-play"></i><span>{TTCMS-Book-Popular:Rand}</span></p>
+										<p class="video-like uk-float-left uk-margin-left"><i class="icon iconfont icon-like"></i><span>{TTCMS-Book-Popular:Rand}</span></p>
+									</div>
+								</div>
+							</div>
+					{/TTCMS-Book-Popular}					
+					
+
+
+
+
+                  
+                    </div>
+                </div>
+				<div class="line">
+                    <hr>
+                </div>
+
+
+
+        </div>				
+				
+				
+				
+				
+				
+				
+
+				 <!-- 视频结束 -->				 
+				</div> <!-- header.html闭合DIV -->
+			{TTCMS-include:Footer}
+		</div>	
+	</div>
+ </body>
+</html>
+

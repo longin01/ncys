@@ -5,7 +5,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,7 +67,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
 									
 <?php
 
-$AdminTop = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminTop.php"),true);
+$AdminTop = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminTop.php"),true);
 
 array_multisort(array_column($AdminTop,'TopId'),SORT_DESC,$AdminTop);//SOTR_ASC,SOTR_DESC
  $count 	= count($AdminTop);
@@ -137,10 +137,10 @@ function post_input($data){$data = stripslashes($data);$data = htmlspecialchars(
 $Php = post_input($_GET["Php"]);	
 $Id = post_input($_GET["Id"]);	
 if($Php =="Home/Ad/Top" || $Id !== NULL ){
-$AdminTop = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminTop.php"),true);
+$AdminTop = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminTop.php"),true);
 array_multisort(array_column($AdminTop,'TopId'),SORT_DESC,$AdminTop);//SOTR_ASC,SOTR_DESC
 include('../Php/Public/Mysql.php');
-$file = fopen("../NCSQL/Admin/Ad/AdminTop.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminTop.php","w");
 fwrite($file,json_encode(DELETE($AdminTop,$Id)));
 fclose($file);  
 ?>

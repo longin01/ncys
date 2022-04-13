@@ -5,7 +5,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +38,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
                 <div class="tpl-block ">
 
                     <div class="am-g tpl-amazeui-form">
-						<?php	error_reporting(E_ALL^E_NOTICE^E_WARNING);include("../NCSQL/Admin/Security/AdminUser.php");	?>	
+						<?php	error_reporting(E_ALL^E_NOTICE^E_WARNING);include("../TTSQL/Admin/Security/AdminUser.php");	?>	
                         <div class="am-u-sm-12 am-u-md-9">
                             <form method="post"  class="am-form am-form-horizontal">
 						
@@ -91,7 +91,7 @@ $ippass = post_input($_POST["ippass"]);
 	$str .= 'define(\'IPPASS\', \''.$ippass.'\');';
 	$str .= "\n";	
 	$str .= '?>';
-	$ff = fopen("../NCSQL/Admin/Security/AdminUser.php",'w+');
+	$ff = fopen("../TTSQL/Admin/Security/AdminUser.php",'w+');
 	fwrite($ff,$str);
 ?>
 <script language="javascript"> 

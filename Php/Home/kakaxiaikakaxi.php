@@ -9,7 +9,7 @@ $LEFTAD3Pic =Null;
 $LEFTAD3Web =Null;
 $FloatWebUrl =Null;
 $FloatPicUrl =Null;
-$AdminCoupletss = json_decode(file_get_contents("../../NCSQL/Admin/Ad/AdminCouplets.php"),true);
+$AdminCoupletss = json_decode(file_get_contents("../../TTSQL/Admin/Ad/AdminCouplets.php"),true);
 $count 	= count($AdminCoupletss);
 for ($x=0; $x<=$count-1; $x++) {
 $Couplets		=	$AdminCoupletss[$x];	
@@ -37,7 +37,7 @@ if($CoupletsState>$time){
 }	
 }
 /***MO底部悬浮广告***/
-$AdminFloats = json_decode(file_get_contents("../../NCSQL/Admin/Ad/AdminFloat.php"),true);
+$AdminFloats = json_decode(file_get_contents("../../TTSQL/Admin/Ad/AdminFloat.php"),true);
 $count 	= count($AdminFloats);
 for ($x=0; $x<=$count-1; $x++) {
 $Float		=	$AdminFloats[$x];	

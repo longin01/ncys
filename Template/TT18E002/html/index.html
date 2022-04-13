@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>{TTCMS:$WebTitle}</title>
+<meta name="author" content="{TTCMS:$WebKeywords}">
+<meta name="keywords" content="{TTCMS:$WebKeywords}">
+<meta name="description" content="{TTCMS:$WebDescription}">
+<link rel="icon" type="image/png" href="{TTCMS:$StylePath}/img/logo.ico">
+<link href="{TTCMS:$StylePath}/css/style.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="{TTCMS:$StylePath}/js/common.js"></script>
+<!--[if lt IE 9]>
+<script src="{TTCMS:$StylePath}/js/html5shiv.min.js"></script>
+<script src="{TTCMS:$StylePath}/js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<!-- 页头 开始 -->
+{TTCMS-include:Header}
+<!-- 页头 结束 -->
+<div class="topone clearfix"></div>
+<div class="ads">
+{TTCMS-TAd}
+<p style="margin:10px 0;"><a href="{TTCMS-TAd:Url}" target="_blank"><img style="width:{TTCMS-TAd:Width};height:{TTCMS-TAd:Height};margin-bottom:2px;" src="{TTCMS-TAd:Pic}"></a></p>
+{/TTCMS-TAd}
+</div>
+<div class="main">
+<div class="index-tj clearfix">
+<div class="index-tj-l">
+<h1 class="title index-color clearfix">最新视频</h1>
+<ul>
+{TTCMS-Index:Type=1,Count=10}
+<li class="p2 m1"><a href="{TTCMS-Index:DUrl}" title="{TTCMS-Index:Name}" class="link-hover"><img src="{TTCMS-Index:Pic}" alt="{TTCMS-Index:Name}"><span class="video-bg"></span><span class="lzbz">
+<p class="name">{TTCMS-Index:Name}</p></span></a></li>
+{/TTCMS-Index}
+{TTCMS-Index:Type=2,Count=10}
+<li class="p2 m1"><a href="{TTCMS-Index:DUrl}" title="{TTCMS-Index:Name}" class="link-hover"><img src="{TTCMS-Index:Pic}" alt="{TTCMS-Index:Name}"><span class="video-bg"></span><span class="lzbz">
+<p class="name">{TTCMS-Index:Name}</p></span></a></li>
+{/TTCMS-Index}
+</ul>
+</div>
+</div>
+<div class="index-tj clearfix">
+<div class="index-tj-l">
+<h1 class="title index-color clearfix">热门视频</h1>
+<ul>
+{TTCMS-Index:Type=3,Count=10}
+<li class="p2 m1"><a href="{TTCMS-Index:DUrl}" title="{TTCMS-Index:Name}" class="link-hover"><img src="{TTCMS-Index:Pic}" alt="{TTCMS-Index:Name}"><span class="video-bg"></span><span class="lzbz">
+<p class="name">{TTCMS-Index:Name}</p></span></a></li>
+{/TTCMS-Index}
+{TTCMS-Index:Type=4,Count=10}
+<li class="p2 m1"><a href="{TTCMS-Index:DUrl}" title="{TTCMS-Index:Name}" class="link-hover"><img src="{TTCMS-Index:Pic}" alt="{TTCMS-Index:Name}"><span class="video-bg"></span><span class="lzbz">
+<p class="name">{TTCMS-Index:Name}</p></span></a></li>
+{/TTCMS-Index}
+</ul>
+</div>
+</div>
+<div class="index-tj clearfix">
+<div class="index-tj-l">
+<h1 class="title index-color clearfix">推荐视频</h1>
+<ul>
+{TTCMS-Index:Type=5,Count=10}
+<li class="p2 m1"><a href="{TTCMS-Index:DUrl}" title="{TTCMS-Index:Name}" class="link-hover"><img src="{TTCMS-Index:Pic}" alt="{TTCMS-Index:Name}"><span class="video-bg"></span><span class="lzbz">
+<p class="name">{TTCMS-Index:Name}</p></span></a></li>
+{/TTCMS-Index}
+{TTCMS-Index:Type=6,Count=10}
+<li class="p2 m1"><a href="{TTCMS-Index:DUrl}" title="{TTCMS-Index:Name}" class="link-hover"><img src="{TTCMS-Index:Pic}" alt="{TTCMS-Index:Name}"><span class="video-bg"></span><span class="lzbz">
+<p class="name">{TTCMS-Index:Name}</p></span></a></li>
+{/TTCMS-Index}
+</ul>
+</div>
+</div>
+</div>
+<div class="ylink clearfix">
+友情连接： 
+{TTCMS-IeUrl}
+<a href="{TTCMS-IeUrl:Url}" title="{TTCMS-IeUrl:Name}" target="_blank">{TTCMS-IeUrl:Name}</a>
+{/TTCMS-IeUrl}
+</div>
+<!-- 页尾 开始 -->
+{TTCMS-include:Footer}
+<!-- 页尾 结束 -->
+</body>
+</html>
+

@@ -5,7 +5,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -113,7 +113,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
 
 if (isset($_POST['submit']) && isset($_POST['VideoId']) && isset($_POST['VideoWebUrl']) && isset($_POST['VideoRemarks'])  && isset($_POST['VideoPicUrl'])  && isset($_POST['VideoState'])&& isset($_POST['VideoPicUrlWidth'])&& isset($_POST['VideoPicUrlHeight'])) {
 function post_input($data){$data = stripslashes($data);$data = htmlspecialchars($data);return $data;}
-$AdminVideo = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminVideo.php"),true);
+$AdminVideo = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminVideo.php"),true);
 $VideoId			=	post_input($_POST["VideoId"]);//广告链接
 $VideoWebUrl			=	post_input($_POST["VideoWebUrl"]);//广告链接
 $VideoRemarks			=	post_input($_POST["VideoRemarks"]);//广告备注
@@ -136,7 +136,7 @@ $AdminVideoMod['VideoState'] = $VideoState;
 $AdminVideoMod['VideoPicUrlWidth'] = $VideoPicUrlWidth;
 $AdminVideoMod['VideoPicUrlHeight'] = $VideoPicUrlHeight;	
 $UPDATE=INSERT($AdminVideo,$AdminVideoMod); 
-$file = fopen("../NCSQL/Admin/Ad/AdminVideo.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminVideo.php","w");
 fwrite($file,json_encode($UPDATE));
 fclose($file);  
 

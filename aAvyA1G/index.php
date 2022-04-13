@@ -1,5 +1,5 @@
 <?php
-$ADMINKEY='NCCMS18';
+$ADMINKEY='TTCMS18';
 //引入公共辅助函数
 include("../Php/Public/Helper.php");
 if(isset($_GET['Php'])){	

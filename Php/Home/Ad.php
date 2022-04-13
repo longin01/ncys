@@ -8,7 +8,7 @@ $AdminCouplets	=NULL;
 $AdminFloat		=NULL;
 $AdminAdJs		=NULL;
 /***头部横幅广告***/
-$AdminTops = json_decode(file_get_contents("./NCSQL/Admin/Ad/AdminTop.php"),true);
+$AdminTops = json_decode(file_get_contents("./TTSQL/Admin/Ad/AdminTop.php"),true);
 array_multisort(array_column($AdminTops,'TopId'),SORT_DESC,$AdminTops);//SOTR_ASC,SOTR_DESC
 $count 	= count($AdminTops);
 for ($x=0; $x<=$count-1; $x++) {
@@ -30,7 +30,7 @@ $AdminTop=INSERT($AdminTop,$AdminTopMod);
 }	
 }
 /***播放横幅广告***/
-$AdminVideos = json_decode(file_get_contents("./NCSQL/Admin/Ad/AdminVideo.php"),true);
+$AdminVideos = json_decode(file_get_contents("./TTSQL/Admin/Ad/AdminVideo.php"),true);
 array_multisort(array_column($AdminVideos,'VideoId'),SORT_DESC,$AdminVideos);//SOTR_ASC,SOTR_DESC
 $count 	= count($AdminVideos);
 for ($x=0; $x<=$count-1; $x++) {
@@ -52,7 +52,7 @@ $AdminVideo=INSERT($AdminVideo,$AdminVideoMod);
 }	
 }
 /***对联展现广告***/
-$AdminCoupletss = json_decode(file_get_contents("./NCSQL/Admin/Ad/AdminCouplets.php"),true);
+$AdminCoupletss = json_decode(file_get_contents("./TTSQL/Admin/Ad/AdminCouplets.php"),true);
 $count 	= count($AdminCoupletss);
 for ($x=0; $x<=$count-1; $x++) {
 $Couplets		=	$AdminCoupletss[$x];	
@@ -71,7 +71,7 @@ $AdminCouplets=INSERT($AdminCouplets,$AdminCoupletsMod);
 }	
 }
 /***MO底部悬浮广告***/
-$AdminFloats = json_decode(file_get_contents("./NCSQL/Admin/Ad/AdminFloat.php"),true);
+$AdminFloats = json_decode(file_get_contents("./TTSQL/Admin/Ad/AdminFloat.php"),true);
 $count 	= count($AdminFloats);
 for ($x=0; $x<=$count-1; $x++) {
 $Float		=	$AdminFloats[$x];	
@@ -90,8 +90,8 @@ $AdminFloat=INSERT($AdminFloat,$AdminFloatMod);
 }	
 }
 /***广告联盟js广告***/
-$AdminAdJs = file_get_contents("./NCSQL/Admin/Ad/AdminAdJs.php");
-$jurljson = json_decode(file_get_contents('./NCSQL/Home/API.CEY'), true);
+$AdminAdJs = file_get_contents("./TTSQL/Admin/Ad/AdminAdJs.php");
+$jurljson = json_decode(file_get_contents('./TTSQL/Home/API.CEY'), true);
 $Statistics=$jurljson['Statistics'];
 $BookConterUrl=$jurljson['txtapi'];
 $PicConterUrl=$jurljson['imgapi'];

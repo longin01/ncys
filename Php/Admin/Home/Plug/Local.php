@@ -5,7 +5,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +49,7 @@ function post_input($data){$data = stripslashes($data);$data = htmlspecialchars(
 $Php = post_input($_GET["Php"]);	
 $Cd = post_input($_GET["Cd"]);	
 if($Php =="Home/Ad/IeUrl" || $Cd !== NULL ){
-$AdminIeUrlCd = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+$AdminIeUrlCd = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
 array_multisort(array_column($AdminIeUrlCd,'IeUrlId'),SORT_DESC,$AdminIeUrlCd);//SOTR_ASC,SOTR_DESC
 $Cdcount 	= count($AdminIeUrlCd);
 $Cdcounts	=$Cdcount-1;
@@ -77,7 +77,7 @@ $AdminIeUrlMod['IeUrlState'] = $IeUrlState;
 
 
 $UPDATE=UPDATE($AdminIeUrlCd,$Cd,$AdminIeUrlMod); 
-$file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
 fwrite($file,json_encode($UPDATE));
 fclose($file);  
 
@@ -146,7 +146,7 @@ foreach ($TemplatePlug as $TemplatePlugName) {
                                             <td><a href="#">哥哥草模板</td>
                                             <td>一套自适应模板</td>
 											<td>1.0</td>
-											<td>NCCMS</td>
+											<td>TTCMS</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
@@ -162,7 +162,7 @@ foreach ($TemplatePlug as $TemplatePlugName) {
                                             <td><a href="#">哥哥草模板</td>
                                             <td>一套自适应模板</td>
 											<td>1.0</td>
-											<td>NCCMS</td>
+											<td>TTCMS</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
@@ -211,7 +211,7 @@ $AdminIeUrlMod['IeUrlWebUrl'] = $IeUrlWebUrl[$x];
 $AdminIeUrlMod['IeUrlState'] = $IeUrlState[$x];	
 $AdminIeUrlINSERT=INSERT($AdminIeUrlINSERT,$AdminIeUrlMod);
 }
-$file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
 fwrite($file,json_encode($AdminIeUrlINSERT));
 fclose($file);  
 ?>
@@ -240,9 +240,9 @@ function post_input($data){$data = stripslashes($data);$data = htmlspecialchars(
 $Php = post_input($_GET["Php"]);	
 $Id = post_input($_GET["Id"]);	
 if($Php =="Home/Ad/IeUrl" || $Id !== NULL ){
-$AdminIeUrl = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminIeUrl.php"),true);
+$AdminIeUrl = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminIeUrl.php"),true);
 include('../Php/Public/Mysql.php');	
-$file = fopen("../NCSQL/Admin/Ad/AdminIeUrl.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminIeUrl.php","w");
 fwrite($file,json_encode(DELETE($AdminIeUrl,$Id)));
 fclose($file);  
 ?>

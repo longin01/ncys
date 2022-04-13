@@ -3,11 +3,11 @@
 //$GetMb_page
 
 
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_page.'.txt'),true);
+$MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_page.'.txt'),true);
 
 $BookTypeName=$vodtype[$GetMb_page];
 $BookTypeName=$BookTypeName['name'];
-$tpl->assign('BookTypeNCSQL', $MYSQLVODS);
+$tpl->assign('BookTypeTTSQL', $MYSQLVODS);
 $tpl->assign('BookType', $GetMb_page);
 $tpl->assign('ListName', $BookTypeName);
 $tpl->assign('ListUrl',$Host1.'book_list'.$Host2.$GetMb_page.$Host3.'1'.$Host4);

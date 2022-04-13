@@ -3,11 +3,11 @@
 //$GetMb_page
 
 
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_page.'.txt'),true);
+$MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_page.'.txt'),true);
 
 $BtTypeName=$vodtype[$GetMb_page];
 $BtTypeName=$BtTypeName['name'];
-$tpl->assign('BtTypeNCSQL', $MYSQLVODS);
+$tpl->assign('BtTypeTTSQL', $MYSQLVODS);
 $tpl->assign('BtType', $GetMb_page);
 $tpl->assign('ListName', $BtTypeName);
 $tpl->assign('ListUrl',$Host1.'bt_list'.$Host2.$GetMb_page.$Host3.'1'.$Host4);

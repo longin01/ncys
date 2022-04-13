@@ -3,11 +3,11 @@
 //$GetMb_page
 
 
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_page.'.txt'),true);
+$MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_page.'.txt'),true);
 
 $VideoTypeName=$vodtype[$GetMb_page];
 $VideoTypeName=$VideoTypeName['name'];
-$tpl->assign('VideoTypeNCSQL', $MYSQLVODS);
+$tpl->assign('VideoTypeTTSQL', $MYSQLVODS);
 $tpl->assign('VideoType', $GetMb_page);
 $tpl->assign('ListName', $VideoTypeName);
 $tpl->assign('ListUrl',$Host1.'video_list'.$Host2.$GetMb_page.$Host3.'1'.$Host4);
@@ -22,7 +22,7 @@ for ($x=0; $x<=$count; $x++) {
 	  $tpl->assign('Id', $MYSQLVODSs['d_id']);
 	  $tpl->assign('Name', $MYSQLVODSs['d_name']);
 	  $tpl->assign('Pic', $MYSQLVODSs['d_pic']);
-	  $paly='<iframe src="/Static/Home/VideoJS/?url='.$MYSQLVODSs['d_playurl'].'"  frameborder="0" scrolling="no" width="100%" height="100%" ></iframe>';
+	  $paly='<iframe src="/Static/Home/VideoJS/?Play='.$MYSQLVODSs['d_playurl'].'"  frameborder="0" scrolling="no" width="100%" height="100%" ></iframe>';
 	  $tpl->assign('Play',$paly);
 	  $tpl->assign('Time', $MYSQLVODSs['d_time']);
 	  $FFCZ='4';

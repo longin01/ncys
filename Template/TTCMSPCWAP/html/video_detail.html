@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>{TTCMS:$WebTitle}-{TTCMS:$ListName}-{TTCMS:$Name}视频介绍</title>
+	<meta name="keywords" content="{TTCMS:$WebKeywords},{TTCMS:$ListName},{TTCMS:$Name}" />
+	<meta name="description" content="{TTCMS:$WebDescription},{TTCMS:$ListName},{TTCMS:$Name}" />
+	<link rel="icon" type="image/png" href="{TTCMS:$StylePath}/img/logo.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="index, follow" />
+	<meta name="revisit-after" content="1 days" />
+	<script src="{TTCMS:$StylePath}/js/jquery.min.js"></script>
+	<script src="{TTCMS:$StylePath}/js/uikit.min.js"></script>
+	<link rel="stylesheet" href="{TTCMS:$StylePath}/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="{TTCMS:$StylePath}/css/iconfont.css" /> 
+	<link rel="stylesheet" href="{TTCMS:$StylePath}/css/m.style.css">
+</head>
+<body>
+{TTCMS-include:Header}
+<div class="v-read">
+	<!-- 标题 -->
+	<div class="v-type-title uk-clearfix">
+		<p class="bead ">
+			<span class="icon iconfont icon-home"></span>
+			位置：
+			<a href="#" class="">{TTCMS:$ListName}</a>
+			<span class="icon iconfont icon-right"></span>
+			<a href="#">{TTCMS:$Name}</a>
+		</p>
+	</div>
+	<!-- 影片介绍 -->
+	<div class="read-info">
+		<div class="read-img">
+			<img src="{TTCMS:$Pic}" alt="">
+		</div>
+		<!-- 视频标题 -->
+		<h3 class="read-title uk-margin-top uk-margin-small-bottom">{TTCMS:$Name}</h3>
+		<div class="read-text uk-margin-top-remove uk-clearfix">
+			<p class="uk-float-left">影片分类:<span>{TTCMS:$ListName}</span></p><p class="uk-float-left">更新时间:<span>{TTCMS:$Time}</span></p>
+		</div>	
+		<div class="read-btn uk-margin-top uk-margin-bottom uk-clearfix">
+			<a href="{TTCMS:$CUrl}" class="uk-float-left">手机播放</a><a href="{TTCMS:$CUrl}" class="uk-float-right">电脑播放</a>
+		</div>
+	</div>
+</div>
+	{TTCMS-DCAd}
+	<a target="_blank"  href="{TTCMS-DCAd:Url}"><img style="width:{TTCMS-DCAd:Width};height:{TTCMS-DCAd:Height};margin-bottom:2px;" src="{TTCMS-DCAd:Pic}"></a> 
+	{/TTCMS-DCAd}
+<div class="v-type-favorite uk-clearfix">
+	<!-- 相关视频 标题 -->
+	<div class="v-type-title uk-clearfix uk-margin-top uk-margin-small-bottom"><h3 class="uk-float-left">推荐视频</h3></div>
+	<!-- 视频缩略图 -->
+	<ul class="recom recom-play">
+		{TTCMS-Video-Popular:Count=4}
+			<li>
+				<a href="{TTCMS-Video-Popular:DUrl}" class="uk-display-block ">
+					<div class="re-pic uk-float-left"><img  class="v-cover lazy" data-original="{TTCMS-Video-Popular:Pic}" alt="{TTCMS-Video-Popular:Name}"></div>
+					<div class="re-info">
+						<div class="re-h uk-margin-top-remove">{TTCMS-Video-Popular:Name}</div>
+						<div class="re-detail">
+							<span><i class="icon iconfont icon-play"></i>{TTCMS-Video-Popular:Rand}
+							</span>
+							<span><i class="icon iconfont icon-zan"></i>{TTCMS-Video-Popular:Rand}</span>
+						</div>
+					</div>
+				</a>
+			</li>
+			
+		{/TTCMS-Video-Popular}					
+	</ul>
+</div>
+{TTCMS-include:Footer}
+ </body>
+</html>
+

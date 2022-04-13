@@ -5,7 +5,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>奶茶CMS管理中心</title>
+    <title>探探cms管理中心</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +38,7 @@ if (isset($ADMINKEY)) { }else{ exit('404');   }   include('../Php/Admin/cookie.p
                     </div>
                 </div>
 <?php
-$AdminFloat = json_decode(file_get_contents("../NCSQL/Admin/Ad/AdminFloat.php"),true);
+$AdminFloat = json_decode(file_get_contents("../TTSQL/Admin/Ad/AdminFloat.php"),true);
 function post_input($data){$data = stripslashes($data);$data = htmlspecialchars($data);return $data;}
 $Id = post_input($_GET["Id"]);
 $Float		=	$AdminFloat[$Id];
@@ -132,7 +132,7 @@ $AdminFloatMod['FloatState'] = $FloatState;
 $AdminFloatMod['FloatName'] = $FloatName;
 
 $UPDATE=UPDATE($AdminFloat,$Id,$AdminFloatMod); 
-$file = fopen("../NCSQL/Admin/Ad/AdminFloat.php","w");
+$file = fopen("../TTSQL/Admin/Ad/AdminFloat.php","w");
 fwrite($file,json_encode($UPDATE));
 fclose($file);  
 

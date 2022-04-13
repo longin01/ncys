@@ -6,12 +6,18 @@ error_reporting(0);
 //$GetMb_id
 //$GetMb_page
 $uubb=array();
-//include('./Php/Public/Mysql.php');
-for ($x=1; $x<=17; $x++) {
- $search = json_decode(file_get_contents('./NCSQL/Home/'.$x.'.txt'),true);
-$uubb=array_merge($uubb,$search);
+$x=[1,2,3,4,5,6,7,10,11,12,13,14,15,16,19,20,21,22,23,24,25,26,27,28,29,30,34];
+foreach ($x as $k => $v) {
+
+    $search = json_decode(file_get_contents('./TTSQL/Home/'.$v.'.txt'),true);
+    if($search){
+        $uubb=array_merge($uubb,$search);
+    }
+
+    
 
 }
+
 $GetMb_id = clean_xss($GetMb_id,true);
 
 function search($uubb,$GetMb_id) {
@@ -20,6 +26,7 @@ $arr=$result=array();
 foreach ($a as $key => $value) {
 
 foreach ($value as $valu) {
+
 if(strstr($valu, $GetMb_id) !== false)
 {
 
@@ -38,7 +45,6 @@ if(array_key_exists($value,$a)){
 array_push($result, $a[$value]);
 }
 }
-
 return $result; 
 }
 
@@ -50,7 +56,7 @@ if($MYSQLVODS ==NULL){
 
 //$MYSQLVODS=PAGE($MYSQLVODS,$GetMb_page,'5');
 $count=count($MYSQLVODS)-1;
-$tpl->assign('SearchTypeNCSQL', $MYSQLVODS);
+$tpl->assign('SearchTypeTTSQL', $MYSQLVODS);
 $tpl->assign('SearchTypePage', $GetMb_page);
 
 $tpl->assign('SearchTypeId', $GetMb_id);

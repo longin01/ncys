@@ -1,10 +1,15 @@
 <?php
 //$GetMb_id
 //$GetMb_page
-$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.$GetMb_id.'.txt'),true);
+if (file_exists('./TTSQL/Home/'.$GetMb_id.'.txt')) {
+    $MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.$GetMb_id.'.txt'),true);
+}else{
+    $MYSQLVODS =[];
+}
+
 //$MYSQLVODS=PAGE($MYSQLVODS,$GetMb_page,'5');
 $count=count($MYSQLVODS)-1;
-$tpl->assign('VideoTypeNCSQL', $MYSQLVODS);
+$tpl->assign('VideoTypeTTSQL', $MYSQLVODS);
 $tpl->assign('VideoTypePage', $GetMb_page);
 $tpl->assign('VideoTypeId', $GetMb_page);
 

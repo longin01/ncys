@@ -21,26 +21,26 @@ class Compile
         }
         // 系统设置变量匹配
         // \x7f-\xff表示ASCII字符从127到255，其中\为转义，作用是匹配汉字
-        $this->T_P[] = "#\{NCCMS:\\$([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)\}#";
+        $this->T_P[] = "#\{TTCMS:\\$([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)\}#";
 		// 系统设置变量解析
         $this->T_R[] = "<?php echo \$this->value['\\1']; ?>";
 		//数据分类标签匹配
-		$this->T_P[] = "#\{NCCMS:Type=(.*?)\}#i";
-        $this->T_P[] = "#\{\/NCCMS:Type\}#";	
-        $this->T_P[] = "#\{NCCMS:Name\}#";
-		$this->T_P[] = "#\{NCCMS:Url\}#";		
+		$this->T_P[] = "#\{TTCMS:Type=(.*?)\}#i";
+        $this->T_P[] = "#\{\/TTCMS:Type\}#";	
+        $this->T_P[] = "#\{TTCMS:Name\}#";
+		$this->T_P[] = "#\{TTCMS:Url\}#";		
 		//数据分类标签解析
         $this->T_R[] = "<?php \$vodtypes=(array)\$this->value['数据分类'];\$shuzu='\\1';\$explode=explode(',',\$shuzu);\$count=count(\$explode);\$data=array();for (\$x=0; \$x<=\$count-1; \$x++) {\$aass=\$explode[\$x];\$data[\$x]=\$explode[\$x];}\$countt=count(\$data);for (\$x=0; \$x<=\$countt-1; \$x++) {\$fenleivod=\$vodtypes[\$data[\$x]];\$name=\$fenleivod['name'];\$id=\$fenleivod['id'];\$type=\$fenleivod['type'];?> ";
         $this->T_R[] = "<?php } ?>";
         $this->T_R[] = "<?php echo \$name?>";
 		$this->T_R[] = "<?php     echo \$Host1.\$type.'_list'.\$Host2.\$id.\$Host3.'1'.\$Host4;?>";
 		//头部横幅广告标签匹配
-		$this->T_P[] = "#\{NCCMS-TAd\}#i";
-        $this->T_P[] = "#\{\/NCCMS-TAd\}#";	
-        $this->T_P[] = "#\{NCCMS-TAd:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-TAd:Url\}#";
-		$this->T_P[] = "#\{NCCMS-TAd:Width\}#";
-		$this->T_P[] = "#\{NCCMS-TAd:Height\}#";		
+		$this->T_P[] = "#\{TTCMS-TAd\}#i";
+        $this->T_P[] = "#\{\/TTCMS-TAd\}#";	
+        $this->T_P[] = "#\{TTCMS-TAd:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-TAd:Url\}#";
+		$this->T_P[] = "#\{TTCMS-TAd:Width\}#";
+		$this->T_P[] = "#\{TTCMS-TAd:Height\}#";		
 		//头部横幅广告标签解析
         $this->T_R[] = "<?php \$AdminTop=(array)\$this->value['TopWebAd'];\$AdminTop_count=count(\$AdminTop);for (\$x=0; \$x<=\$AdminTop_count-1; \$x++) {\$TopWeb=\$AdminTop[\$x];\$TopWebUrl=\$TopWeb['TopWebUrl'];\$TopRemarks=\$TopWeb['TopRemarks'];\$TopPicUrl=\$TopWeb['TopPicUrl'];\$TopState=\$TopWeb['TopState'];\$TopPicUrlWidth=\$TopWeb['TopPicUrlWidth'];\$TopPicUrlHeight=\$TopWeb['TopPicUrlHeight'];;?> ";
         $this->T_R[] = "<?php } ?>";
@@ -49,12 +49,12 @@ class Compile
         $this->T_R[] = "<?php echo \$TopPicUrlWidth?>";
 		$this->T_R[] = "<?php echo \$TopPicUrlHeight?>";
 		//详情内容横幅广告标签匹配
-		$this->T_P[] = "#\{NCCMS-DCAd\}#i";
-        $this->T_P[] = "#\{\/NCCMS-DCAd\}#";	
-        $this->T_P[] = "#\{NCCMS-DCAd:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-DCAd:Url\}#";
-		$this->T_P[] = "#\{NCCMS-DCAd:Width\}#";
-		$this->T_P[] = "#\{NCCMS-DCAd:Height\}#";		
+		$this->T_P[] = "#\{TTCMS-DCAd\}#i";
+        $this->T_P[] = "#\{\/TTCMS-DCAd\}#";	
+        $this->T_P[] = "#\{TTCMS-DCAd:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-DCAd:Url\}#";
+		$this->T_P[] = "#\{TTCMS-DCAd:Width\}#";
+		$this->T_P[] = "#\{TTCMS-DCAd:Height\}#";		
 		//详情内容横幅广告标签解析
         $this->T_R[] = "<?php \$Video=(array)\$this->value['VideoWebAd'];\$Video_count=count(\$Video);for (\$x=0; \$x<=\$Video_count-1; \$x++) {\$VideoWeb=\$Video[\$x];\$VideoWebUrl=\$VideoWeb['VideoWebUrl'];\$VideoRemarks=\$VideoWeb['VideoRemarks'];\$VideoPicUrl=\$VideoWeb['VideoPicUrl'];\$VideoState=\$VideoWeb['VideoState'];\$VideoPicUrlWidth=\$VideoWeb['VideoPicUrlWidth'];\$VideoPicUrlHeight=\$VideoWeb['VideoPicUrlHeight'];;?> ";
         $this->T_R[] = "<?php } ?>";
@@ -63,55 +63,55 @@ class Compile
         $this->T_R[] = "<?php echo \$VideoPicUrlWidth?>";
 		$this->T_R[] = "<?php echo \$VideoPicUrlHeight?>";		
 		//公共引入模板标签匹配
-		$this->T_P[] = "#\{NCCMS-include:(.*?)\}#i";
+		$this->T_P[] = "#\{TTCMS-include:(.*?)\}#i";
 		//公共引入模板标签解析
         $this->T_R[] = "<?php \$mubantou=\$this->value['\\1'];\$this->show(\$mubantou); ?>";
 		//首页推荐分类名称标签匹配
-		$this->T_P[] = "#\{NCCMS-Index-Type:(.*?)\}#i";
+		$this->T_P[] = "#\{TTCMS-Index-Type:(.*?)\}#i";
 		//首页推荐分类名称标签解析
         $this->T_R[] = "<?php  \$vodtypes=(array)\$this->value['数据分类'];  \$shuzua=\$vodtypes['\\1'];echo \$shuzua['name']; ?>";
-		//首页推荐视频数组标签匹配{NCCMS-首页推荐:分类=2,数量=10}
-		$this->T_P[] = "#\{NCCMS-Index:Type=(.*?),Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Index\}#i";
-		$this->T_P[] = "#\{NCCMS-Index:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Index:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Index:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Index:Rand\}#";
+		//首页推荐视频数组标签匹配{TTCMS-首页推荐:分类=2,数量=10}
+		$this->T_P[] = "#\{TTCMS-Index:Type=(.*?),Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Index\}#i";
+		$this->T_P[] = "#\{TTCMS-Index:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Index:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Index:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Index:Rand\}#";
 		//首页推荐视频数组标签解析
-        $this->T_R[] = "<?php  \$VideoType=\\1;  \$Count=\\2;\$MYSQLVODS = json_decode(file_get_contents('./NCSQL/Home/'.\$VideoType.'.txt'),true); for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVOD=\$MYSQLVODS[\$x];  ?>";
+        $this->T_R[] = "<?php  \$VideoType=\\1;  \$Count=\\2;\$MYSQLVODS = json_decode(file_get_contents('./TTSQL/Home/'.\$VideoType.'.txt'),true); for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVOD=\$MYSQLVODS[\$x];  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVOD['d_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVOD['d_pic'] ?>";
 		$this->T_R[] = "<?php 	echo  \$Host1.'video_detail'.\$Host2.\$MYSQLVOD['d_id'].\$Host3.\$VideoType.\$Host4; ?>";
 		$this->T_R[] = "<?php 	echo   rand(5, 10000); ?>";
 		//友情链接数组标签匹配
-		$this->T_P[] = "#\{NCCMS-IeUrl\}#i";
-		$this->T_P[] = "#\{\/NCCMS-IeUrl\}#i";
-		$this->T_P[] = "#\{NCCMS-IeUrl:Url\}#";
-		$this->T_P[] = "#\{NCCMS-IeUrl:Name\}#";
+		$this->T_P[] = "#\{TTCMS-IeUrl\}#i";
+		$this->T_P[] = "#\{\/TTCMS-IeUrl\}#i";
+		$this->T_P[] = "#\{TTCMS-IeUrl:Url\}#";
+		$this->T_P[] = "#\{TTCMS-IeUrl:Name\}#";
 		//友情链接数组标签解析
         $this->T_R[] = "<?php  \$IeUrl=(array)\$this->value['IeUrl']; \$Count=Count(\$IeUrl); for (\$x=0; \$x<=\$Count-1; \$x++) {  \$IeUrls=\$IeUrl[\$x];  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$IeUrls['IeUrlWebUrl'] ?>";
 		$this->T_R[] = "<?php 	echo  \$IeUrls['IeUrlName'] ?>";
 		//视频分类数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Video-List:Title\}#i";
-		$this->T_P[] = "#\{NCCMS-Video-List:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Video-List\}#i";
-		$this->T_P[] = "#\{NCCMS-Video-List:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:Rand\}#";	
-		$this->T_P[] = "#\{NCCMS-Video-List:PageUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:prevUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:nextUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:totalUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:baseUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:totalPage\}#";
-		$this->T_P[] = "#\{NCCMS-Video-List:currentPage\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:Title\}#i";
+		$this->T_P[] = "#\{TTCMS-Video-List:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Video-List\}#i";
+		$this->T_P[] = "#\{TTCMS-Video-List:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:Rand\}#";	
+		$this->T_P[] = "#\{TTCMS-Video-List:PageUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:prevUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:nextUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:totalUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:baseUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:totalPage\}#";
+		$this->T_P[] = "#\{TTCMS-Video-List:currentPage\}#";
 		//视频分类数组标签解析
 		$this->T_R[] = "<?php  echo \$this->value['VideoTypeName']; ?>";
-        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['VideoTypeNCSQL'];\$VideoTypeId=\$this->value['VideoTypeId'];\$GetMb_page=\$this->value['VideoTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
+        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['VideoTypeTTSQL'];\$VideoTypeId=\$this->value['VideoTypeId'];\$GetMb_page=\$this->value['VideoTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$s['d_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$s['d_pic'] ?>";
@@ -125,37 +125,38 @@ class Compile
 		$this->T_R[] = "<?php 	echo \$MYSQLVODS['total']; ?>";
 		$this->T_R[] = "<?php 	echo \$GetMb_page; ?>";
 		//视频随机推荐数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Video-Popular:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Video-Popular\}#i";
-		$this->T_P[] = "#\{NCCMS-Video-Popular:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Video-Popular:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Video-Popular:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Video-Popular:Rand\}#";
+		$this->T_P[] = "#\{TTCMS-Video-Popular:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Video-Popular\}#i";
+		$this->T_P[] = "#\{TTCMS-Video-Popular:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Video-Popular:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Video-Popular:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Video-Popular:Rand\}#";
 		//视频随机推荐数组标签解析
-        $this->T_R[] = "<?php  \$VideoType=\$this->value['VideoType']; \$MYSQLVOD=(array)\$this->value['VideoTypeNCSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
+        $this->T_R[] = "<?php  \$VideoType=\$this->value['VideoType']; \$MYSQLVOD=(array)\$this->value['VideoTypeTTSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['d_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['d_pic'] ?>";
 		$this->T_R[] = "<?php 	echo  \$Host1.'video_detail'.\$Host2.\$MYSQLVODs['d_id'].\$Host3.\$VideoType.\$Host4; ?>";
 		$this->T_R[] = "<?php 	echo   rand(5, 10000); ?>";
 		//小说分类数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Book-List:Title\}#i";
-		$this->T_P[] = "#\{NCCMS-Book-List:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Book-List\}#i";
-		$this->T_P[] = "#\{NCCMS-Book-List:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Book-List:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Book-List:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Book-List:Rand\}#";	
-		$this->T_P[] = "#\{NCCMS-Book-List:PageUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Book-List:prevUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Book-List:nextUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Book-List:totalUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Book-List:baseUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Book-List:totalPage\}#";
-        $this->T_P[] = "#\{NCCMS-Book-List:currentPage\}#";
+		$this->T_P[] = "#\{TTCMS-Book-List:Title\}#i";
+		$this->T_P[] = "#\{TTCMS-Book-List:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Book-List\}#i";
+		$this->T_P[] = "#\{TTCMS-Book-List:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Book-List:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Book-List:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Book-List:Rand\}#";	
+		$this->T_P[] = "#\{TTCMS-Book-List:PageUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Book-List:prevUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Book-List:nextUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Book-List:totalUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Book-List:baseUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Book-List:totalPage\}#";
+        $this->T_P[] = "#\{TTCMS-Book-List:currentPage\}#";
 		//小说分类数组标签解析
 		$this->T_R[] = "<?php  echo \$this->value['BookTypeName']; ?>";
-        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['BookTypeNCSQL'];\$BookTypeId=\$this->value['BookTypeId'];\$GetMb_page=\$this->value['BookTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
+        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['BookTypeTTSQL'];\$BookTypeId=\$this->value['BookTypeId'];\$GetMb_page=\$this->value['BookTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
+        
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$s['a_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$s['a_pic'] ?>";
@@ -169,37 +170,37 @@ class Compile
         $this->T_R[] = "<?php 	echo \$MYSQLVODS['total']; ?>";
         $this->T_R[] = "<?php 	echo \$GetMb_page; ?>";
 		//小说随机推荐数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Book-Popular:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Book-Popular\}#i";
-		$this->T_P[] = "#\{NCCMS-Book-Popular:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Book-Popular:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Book-Popular:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Book-Popular:Rand\}#";
+		$this->T_P[] = "#\{TTCMS-Book-Popular:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Book-Popular\}#i";
+		$this->T_P[] = "#\{TTCMS-Book-Popular:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Book-Popular:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Book-Popular:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Book-Popular:Rand\}#";
 		//小说随机推荐数组标签解析
-        $this->T_R[] = "<?php  \$BookType=\$this->value['BookType']; \$MYSQLVOD=(array)\$this->value['BookTypeNCSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
+        $this->T_R[] = "<?php  \$BookType=\$this->value['BookType']; \$MYSQLVOD=(array)\$this->value['BookTypeTTSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['a_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['a_pic'] ?>";
 		$this->T_R[] = "<?php 	echo  \$Host1.'book_detail'.\$Host2.\$MYSQLVODs['a_id'].\$Host3.\$BookType.\$Host4; ?>";
 		$this->T_R[] = "<?php 	echo   rand(5, 10000); ?>";	
 		//套图分类数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Pic-List:Title\}#i";
-		$this->T_P[] = "#\{NCCMS-Pic-List:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Pic-List\}#i";
-		$this->T_P[] = "#\{NCCMS-Pic-List:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-List:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-List:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-List:Rand\}#";	
-		$this->T_P[] = "#\{NCCMS-Pic-List:PageUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-List:prevUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-List:nextUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-List:totalUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Pic-List:baseUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Pic-List:totalPage\}#";
-        $this->T_P[] = "#\{NCCMS-Pic-List:currentPage\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-List:Title\}#i";
+		$this->T_P[] = "#\{TTCMS-Pic-List:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Pic-List\}#i";
+		$this->T_P[] = "#\{TTCMS-Pic-List:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-List:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-List:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-List:Rand\}#";	
+		$this->T_P[] = "#\{TTCMS-Pic-List:PageUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-List:prevUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-List:nextUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-List:totalUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Pic-List:baseUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Pic-List:totalPage\}#";
+        $this->T_P[] = "#\{TTCMS-Pic-List:currentPage\}#";
 		//套图分类数组标签解析
 		$this->T_R[] = "<?php  echo \$this->value['PicTypeName']; ?>";
-        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['PicTypeNCSQL'];\$PicTypeId=\$this->value['PicTypeId'];\$GetMb_page=\$this->value['PicTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
+        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['PicTypeTTSQL'];\$PicTypeId=\$this->value['PicTypeId'];\$GetMb_page=\$this->value['PicTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$s['a_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$s['a_remarks'] ?>";
@@ -214,36 +215,36 @@ class Compile
         $this->T_R[] = "<?php 	echo \$GetMb_page; ?>";
         //小说随机推荐数组标签匹配
 		//套图随机推荐数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Pic-Popular:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Pic-Popular\}#i";
-		$this->T_P[] = "#\{NCCMS-Pic-Popular:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-Popular:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-Popular:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Pic-Popular:Rand\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-Popular:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Pic-Popular\}#i";
+		$this->T_P[] = "#\{TTCMS-Pic-Popular:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-Popular:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-Popular:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Pic-Popular:Rand\}#";
 		//套图随机推荐数组标签解析
-        $this->T_R[] = "<?php  \$PicType=\$this->value['PicType']; \$MYSQLVOD=(array)\$this->value['PicTypeNCSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
+        $this->T_R[] = "<?php  \$PicType=\$this->value['PicType']; \$MYSQLVOD=(array)\$this->value['PicTypeTTSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['a_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['a_remarks'] ?>";
 		$this->T_R[] = "<?php 	echo  \$Host1.'pic_detail'.\$Host2.\$MYSQLVODs['a_id'].\$Host3.\$PicType.\$Host4; ?>";
 		$this->T_R[] = "<?php 	echo   rand(5, 10000); ?>";	
 		//直播分类数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Live-List:Title\}#i";
-		$this->T_P[] = "#\{NCCMS-Live-List:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Live-List\}#i";
-		$this->T_P[] = "#\{NCCMS-Live-List:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Live-List:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Live-List:Rand\}#";
-		$this->T_P[] = "#\{NCCMS-Live-List:PageUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Live-List:prevUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Live-List:nextUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Live-List:totalUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Live-List:baseUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Live-List:totalPage\}#";
-        $this->T_P[] = "#\{NCCMS-Live-List:currentPage\}#";
+		$this->T_P[] = "#\{TTCMS-Live-List:Title\}#i";
+		$this->T_P[] = "#\{TTCMS-Live-List:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Live-List\}#i";
+		$this->T_P[] = "#\{TTCMS-Live-List:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Live-List:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Live-List:Rand\}#";
+		$this->T_P[] = "#\{TTCMS-Live-List:PageUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Live-List:prevUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Live-List:nextUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Live-List:totalUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Live-List:baseUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Live-List:totalPage\}#";
+        $this->T_P[] = "#\{TTCMS-Live-List:currentPage\}#";
 		//直播分类数组标签解析
 		$this->T_R[] = "<?php  echo \$this->value['LiveTypeName']; ?>";
-        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['LiveTypeNCSQL'];\$LiveTypeId=\$this->value['LiveTypeId'];\$GetMb_page=\$this->value['LiveTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
+        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['LiveTypeTTSQL'];\$LiveTypeId=\$this->value['LiveTypeId'];\$GetMb_page=\$this->value['LiveTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$s['live_pic'] ?>";
 		$this->T_R[] = "<?php 	echo  \$Host1.'live_detail'.\$Host2.\$s['live_id'].\$Host3.\$LiveTypeId.\$Host4; ?>";
@@ -257,35 +258,35 @@ class Compile
         $this->T_R[] = "<?php 	echo \$GetMb_page; ?>";
         //小说随机推荐数组标签匹配
 		//直播随机推荐数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Live-Popular:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Live-Popular\}#i";
-		$this->T_P[] = "#\{NCCMS-Live-Popular:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Live-Popular:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Live-Popular:Rand\}#";
+		$this->T_P[] = "#\{TTCMS-Live-Popular:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Live-Popular\}#i";
+		$this->T_P[] = "#\{TTCMS-Live-Popular:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Live-Popular:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Live-Popular:Rand\}#";
 		//直播随机推荐数组标签解析
-        $this->T_R[] = "<?php  \$LiveTypess=\$this->value['LiveType']; \$MYSQLVOD=(array)\$this->value['LiveTypeNCSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
+        $this->T_R[] = "<?php  \$LiveTypess=\$this->value['LiveType']; \$MYSQLVOD=(array)\$this->value['LiveTypeTTSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['live_pic'] ?>";
 		$this->T_R[] = "<?php 	echo  \$Host1.'live_detail'.\$Host2.\$MYSQLVODs['live_id'].\$Host3.\$LiveTypess.\$Host4; ?>";
 		$this->T_R[] = "<?php 	echo   rand(5, 10000); ?>";	
 		//BT分类数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Bt-List:Title\}#i";
-		$this->T_P[] = "#\{NCCMS-Bt-List:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Bt-List\}#i";
-		$this->T_P[] = "#\{NCCMS-Bt-List:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-List:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-List:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-List:Rand\}#";	
-		$this->T_P[] = "#\{NCCMS-Bt-List:PageUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-List:prevUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-List:nextUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-List:totalUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Bt-List:baseUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Bt-List:totalPage\}#";
-        $this->T_P[] = "#\{NCCMS-Bt-List:currentPage\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-List:Title\}#i";
+		$this->T_P[] = "#\{TTCMS-Bt-List:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Bt-List\}#i";
+		$this->T_P[] = "#\{TTCMS-Bt-List:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-List:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-List:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-List:Rand\}#";	
+		$this->T_P[] = "#\{TTCMS-Bt-List:PageUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-List:prevUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-List:nextUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-List:totalUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Bt-List:baseUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Bt-List:totalPage\}#";
+        $this->T_P[] = "#\{TTCMS-Bt-List:currentPage\}#";
 		//BT分类数组标签解析
 		$this->T_R[] = "<?php  echo \$this->value['BtTypeName']; ?>";
-        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['BtTypeNCSQL'];\$BtTypeId=\$this->value['BtTypeId'];\$GetMb_page=\$this->value['BtTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
+        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['BtTypeTTSQL'];\$BtTypeId=\$this->value['BtTypeId'];\$GetMb_page=\$this->value['BtTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$s['d_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$s['d_pic'] ?>";
@@ -299,37 +300,37 @@ class Compile
         $this->T_R[] = "<?php 	echo \$MYSQLVODS['total']; ?>";
         $this->T_R[] = "<?php 	echo \$GetMb_page; ?>";
 		//BT随机推荐数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Bt-Popular:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Bt-Popular\}#i";
-		$this->T_P[] = "#\{NCCMS-Bt-Popular:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-Popular:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-Popular:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Bt-Popular:Rand\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-Popular:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Bt-Popular\}#i";
+		$this->T_P[] = "#\{TTCMS-Bt-Popular:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-Popular:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-Popular:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Bt-Popular:Rand\}#";
 		//BT随机推荐数组标签解析
-        $this->T_R[] = "<?php  \$BtType=\$this->value['BtType']; \$MYSQLVOD=(array)\$this->value['BtTypeNCSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
+        $this->T_R[] = "<?php  \$BtType=\$this->value['BtType']; \$MYSQLVOD=(array)\$this->value['BtTypeTTSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['d_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['d_pic'] ?>";
 		$this->T_R[] = "<?php 	echo  \$Host1.'bt_detail'.\$Host2.\$MYSQLVODs['d_id'].\$Host3.\$BtType.\$Host4; ?>";
 		$this->T_R[] = "<?php 	echo   rand(5, 10000); ?>";
 		//电台分类数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Radio-List:Title\}#i";
-		$this->T_P[] = "#\{NCCMS-Radio-List:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Radio-List\}#i";
-		$this->T_P[] = "#\{NCCMS-Radio-List:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-List:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-List:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-List:Rand\}#";	
-		$this->T_P[] = "#\{NCCMS-Radio-List:PageUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-List:prevUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-List:nextUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-List:totalUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Radio-List:baseUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Radio-List:totalPage\}#";
-        $this->T_P[] = "#\{NCCMS-Radio-List:currentPage\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-List:Title\}#i";
+		$this->T_P[] = "#\{TTCMS-Radio-List:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Radio-List\}#i";
+		$this->T_P[] = "#\{TTCMS-Radio-List:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-List:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-List:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-List:Rand\}#";	
+		$this->T_P[] = "#\{TTCMS-Radio-List:PageUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-List:prevUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-List:nextUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-List:totalUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Radio-List:baseUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Radio-List:totalPage\}#";
+        $this->T_P[] = "#\{TTCMS-Radio-List:currentPage\}#";
 		//电台分类数组标签解析
 		$this->T_R[] = "<?php  echo \$this->value['RadioTypeName']; ?>";
-        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['RadioTypeNCSQL'];\$RadioTypeId=\$this->value['RadioTypeId'];\$GetMb_page=\$this->value['RadioTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
+        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['RadioTypeTTSQL'];\$RadioTypeId=\$this->value['RadioTypeId'];\$GetMb_page=\$this->value['RadioTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$s['d_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$s['d_pic'] ?>";
@@ -343,39 +344,39 @@ class Compile
         $this->T_R[] = "<?php 	echo \$MYSQLVODS['total']; ?>";
         $this->T_R[] = "<?php 	echo \$GetMb_page; ?>";
 		//电台随机推荐数组标签匹配
-		$this->T_P[] = "#\{NCCMS-Radio-Popular:Count=(.*?)\}#i";
-		$this->T_P[] = "#\{\/NCCMS-Radio-Popular\}#i";
-		$this->T_P[] = "#\{NCCMS-Radio-Popular:Name\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-Popular:Pic\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-Popular:DUrl\}#";
-		$this->T_P[] = "#\{NCCMS-Radio-Popular:Rand\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-Popular:Count=(.*?)\}#i";
+		$this->T_P[] = "#\{\/TTCMS-Radio-Popular\}#i";
+		$this->T_P[] = "#\{TTCMS-Radio-Popular:Name\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-Popular:Pic\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-Popular:DUrl\}#";
+		$this->T_P[] = "#\{TTCMS-Radio-Popular:Rand\}#";
 		//视频随机推荐数组标签解析
-        $this->T_R[] = "<?php  \$RadioType=\$this->value['RadioType']; \$MYSQLVOD=(array)\$this->value['RadioTypeNCSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
+        $this->T_R[] = "<?php  \$RadioType=\$this->value['RadioType']; \$MYSQLVOD=(array)\$this->value['RadioTypeTTSQL'];shuffle(\$MYSQLVOD);  \$Count=\\1;for (\$x=0; \$x<=\$Count-1; \$x++) {  \$MYSQLVODs=\$MYSQLVOD[\$x];  ?>";
 		$this->T_R[] = "<?php  } ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['d_name'] ?>";
 		$this->T_R[] = "<?php 	echo  \$MYSQLVODs['d_pic'] ?>";
 		$this->T_R[] = "<?php 	echo  \$Host1.'radio_detail'.\$Host2.\$MYSQLVODs['d_id'].\$Host3.\$RadioType.\$Host4; ?>";
 		$this->T_R[] = "<?php 	echo   rand(5, 10000); ?>";
         //视频搜索数组标签匹配
-        $this->T_P[] = "#\{NCCMS-Search-List:Title\}#i";
-        $this->T_P[] = "#\{NCCMS-Search-List:Count=(.*?)\}#i";
-        $this->T_P[] = "#\{\/NCCMS-Search-List\}#i";
-        $this->T_P[] = "#\{NCCMS-Search-List:Name\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:Pic\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:DUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:Rand\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:PageUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:prevUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:nextUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:totalUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:Title\}#i";
+        $this->T_P[] = "#\{TTCMS-Search-List:Count=(.*?)\}#i";
+        $this->T_P[] = "#\{\/TTCMS-Search-List\}#i";
+        $this->T_P[] = "#\{TTCMS-Search-List:Name\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:Pic\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:DUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:Rand\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:PageUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:prevUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:nextUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:totalUrl\}#";
 
-        $this->T_P[] = "#\{NCCMS-Search-List:baseUrl\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:totalPage\}#";
-        $this->T_P[] = "#\{NCCMS-Search-List:currentPage\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:baseUrl\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:totalPage\}#";
+        $this->T_P[] = "#\{TTCMS-Search-List:currentPage\}#";
 
         //视频搜索数组标签解析
         $this->T_R[] = "<?php  echo \$this->value['SearchTypeName']; ?>";
-        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['SearchTypeNCSQL'];\$SearchTypeId=\$this->value['SearchTypeId'];\$GetMb_page=\$this->value['SearchTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
+        $this->T_R[] = "<?php  \$MYSQLVODS=(array)\$this->value['SearchTypeTTSQL'];\$SearchTypeId=\$this->value['SearchTypeId'];\$GetMb_page=\$this->value['SearchTypePage']; \$Count=\\1;\$MYSQLVODS=PAGE(\$MYSQLVODS,\$GetMb_page,\$Count);  foreach(\$MYSQLVODS['source'] as \$s){  ?>";
         $this->T_R[] = "<?php  } ?>";
         $this->T_R[] = "<?php 	echo  \$s['d_name'] ?>";
         $this->T_R[] = "<?php 	echo  \$s['d_pic'] ?>";
