@@ -1,1 +1,0 @@
-document.write('<a href=\"https://www.huzhan.com/ishop12164\" target=\"_blank\"><img class=\"lazy\" src=\"/template/default_pc/html/style/images/V1_P1_PC_J777_1200-140_PPXY1.gif\" style=\"display: block;\"></a>');
