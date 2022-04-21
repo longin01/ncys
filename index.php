@@ -1,42 +1,40 @@
 <?php
-/***引入数组处理类文件***/
-include('./Php/Public/Mysql.php');
-/***引入分页处理类文件***/
-include('./Php/Public/Page.php');
-/***引入辅助行数文件***/
-include('./Php/Public/Helper.php');
-/***检测当日数据是否更新***/
-include('./Php/Home/TTSQL.php');
-/***解析GET路由URL***/
-include('./Php/Home/GET.php');
-/***验证终端-$WEB_PC_MO PC or MO***/
-include('./Php/Home/PCorwap.php');
-/***读取系统后台系统配置数据***/
-include('./Php/Home/mysql.php');
-/***读取系统后台友链配置数据***/
-include('./Php/Home/IeUrl.php');
-/***读取系统后台广告配置数据***/
-include('./Php/Home/Ad.php');
-/***伪静态配置数据***/
-include('./Php/Home/Host.php');
-/***前端路由解析入口***/
-include('./Php/Home/index.php');
-/***
-//终端参数				$WEB_PC_MO
-//PC模版				$WebMobanPC
-//手机模版				$WebMobanWAP
-//网站标题				$WebTitle
-//网站关键字			$WebKeywords
-//网站描述				$WebDescription
-//网站logo链接			$WebLogo
-//网站邮箱				$WebEmail
-//网站统计				$WebCnzz
-//友链数组				$AdminIeUrl
-//头部横幅广告数组		$AdminTop
-//播放横幅广告数组		$AdminVideo
-//对联广告数组			$AdminCouplets
-//MO底部浮漂广告数组    $AdminFloat
-//联盟JS广告			$AdminAdJs
-***/
+/*
+'软件名称：苹果CMS 源码库：https://github.com/maccmspro
+'--------------------------------------------------------
+'Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+'遵循Apache2开源协议发布，并提供免费使用。
+'--------------------------------------------------------
+*/
+header('Content-Type:text/html;charset=utf-8');
+// 检测PHP环境
+if(version_compare(PHP_VERSION,'5.5.0','<'))  die('PHP版本需要>=5.5，请升级【PHP version requires > = 5.5，please upgrade】');
+//超时时间
+@ini_set('max_execution_time', '0');
+//内存限制 取消内存限制
+@ini_set("memory_limit",'-1');
+// 定义应用目录
+define('ROOT_PATH', __DIR__ . '/');
+define('APP_PATH', __DIR__ . '/application/');
+define('MAC_COMM', __DIR__.'/application/common/common/');
+define('MAC_HOME_COMM', __DIR__.'/application/index/common/');
+define('MAC_ADMIN_COMM', __DIR__.'/application/admin/common/');
+define('MAC_START_TIME', microtime(true) );
+define('BIND_MODULE','index');
+define('ENTRANCE', 'index');
+$in_file = rtrim($_SERVER['SCRIPT_NAME'],'/');
+if(substr($in_file,strlen($in_file)-4)!=='.php'){
+    $in_file = substr($in_file,0,strpos($in_file,'.php')) .'.php';
+}
+define('IN_FILE',$in_file);
+if(!is_file('./application/data/install/install.lock')) {
+    header("Location: ./install.php");
+    exit;
+}
+if (!@mb_check_encoding($_SERVER['PATH_INFO'], 'utf-8')){
+    $_SERVER['PATH_INFO']=@mb_convert_encoding($_SERVER['PATH_INFO'], 'UTF-8', 'GBK');
+}
 
-?>
+// 加载框架引导文件
+require __DIR__ . '/thinkphp/start.php';
+
