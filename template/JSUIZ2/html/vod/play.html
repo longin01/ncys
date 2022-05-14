@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" />
+		<title>{$obj.vod_name}详情介绍-{$obj.vod_name}在线观看-{$obj.vod_name}迅雷下载 - {$maccms.site_name}</title>
+		<meta name="keywords" content="{$obj.vod_name}在线收看,{$obj.vod_name}迅雷下载" />
+    	<meta name="description" content="{$obj.vod_name}剧情:{$obj.vod_blurb}" />
+		{include file="public/include"}
+	</head>
+
+	<body>
+		{include file="public/head"}
+		<div class="mod">
+			<div class="area">
+				<h1 class="h1-title">{$obj.vod_name}</h1>
+				<div class="main-content clearfix">
+					<script src="{$maccms.path}static/jsui/js/pls.js"></script>
+					
+				<div class="bofang_box">
+					{$player_data} {$player_js}
+				</div>
+				<script type="text/javascript">
+					try {
+						if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+							document.write('<style>.bofang_box{width:100%;height:230px;}</style>');
+						} else {
+							document.write('<style>.bofang_box{width:100%;height:675px;}</style>');
+						}
+					} catch(e) {}
+				</script>
+					</div>
+				
+				<div class="post-link">
+				{assign name="Prev" value="$obj.vod_id+1"; /}
+				{assign name="next" value="$obj.vod_id-1"; /}
+					{maccms:vod num="1" ids="'.$Prev.'"}<a href="{:mac_url_vod_play($vo)}" class=prev>上一篇<span class=mobile>：<h2>{$vo.vod_name}</h2></span></a>{/maccms:vod}
+					{maccms:vod num="1" ids="'.$next.'"}<a href="{:mac_url_vod_play($vo)}" class=next>下一篇<span class=mobile>：<h2>{$vo.vod_name}</h2></span></a>{/maccms:vod}
+				</div>
+			</div>
+		</div>
+	{include file="public/foot"}
+	</body>
+
+</html>

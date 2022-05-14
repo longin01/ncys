@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" />
+		<title>美图 - {$maccms.site_name}</title>
+    	<meta name="keywords" content="{$obj.art_name}最新图片,推荐图片" />
+    	<meta name="description" content="{$obj.art_name}最新图片,推荐图片" />
+    	{include file="public/include"}
+	</head>
+	<body>
+		{include file="public/head"}
+		<div class="mod">
+			<div class="area">
+				<h1 class="h1-title">{$obj.art_name}</h1>
+				<div class="main-content">
+					{$obj.art_page_list[$param['page']]['content']|mac_url_content_img}      
+				</div>
+				<div class="post-link">
+				{assign name="Prev" value="$obj.art_id+1"; /}
+				{assign name="next" value="$obj.art_id-1"; /}
+					{maccms:art num="1" ids="'.$Prev.'"}<a href="{:mac_url_art_detail($vo)}" class=prev>上一篇<span class=mobile>：<h2>{$vo.art_name}</h2></span></a>{/maccms:art}
+					{maccms:art num="1" ids="'.$next.'"}<a href="{:mac_url_art_detail($vo)}" class=next>下一篇<span class=mobile>：<h2>{$vo.art_name}</h2></span></a>{/maccms:art}
+				</div>
+			</div>
+		</div>
+	{include file="public/foot"}
+	</body>
+</html>
