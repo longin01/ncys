@@ -1,5 +1,31 @@
 <?php
 return array (
+  'kcm3u8' => 
+  array (
+    'status' => '1',
+    'from' => 'kcm3u8',
+    'show' => '快车资源①',
+    'des' => '支持手机电脑在线播放',
+    'target' => '_self',
+    'ps' => '0',
+    'parse' => '',
+    'sort' => '1221',
+    'tip' => '无需安装任何插件',
+    'id' => 'kcm3u8',
+  ),
+  'hnm3u8' => 
+  array (
+    'status' => '1',
+    'from' => 'hnm3u8',
+    'show' => '红牛在线',
+    'des' => '支持手机电脑在线播放',
+    'target' => '_self',
+    'ps' => '0',
+    'parse' => '',
+    'sort' => '1193',
+    'tip' => '无需安装任何插件',
+    'id' => 'hnm3u8',
+  ),
   'hjm3u8' => 
   array (
     'status' => '1',
