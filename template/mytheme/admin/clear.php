@@ -3,7 +3,7 @@ $path = dirname(__FILE__).DIRECTORY_SEPARATOR . "cache" . DIRECTORY_SEPARATOR;
 
 header("Content-Type: text/html;charset=utf-8");
 if(deldir($path)){
-	echo("<script>alert('缓存清理完毕');window.close();</script>");
+	echo("<script>alert('缓存清理完毕，请手动刷新授权页面');window.close();</script>");
 }else{
 	echo("<script>alert('缓存清理失败，请检查目录权限');window.close();</script>");
 }

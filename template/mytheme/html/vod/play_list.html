@@ -20,6 +20,45 @@
 			</div>
 		</div>
 		{/maccms:foreach}
+	{elseif condition="$mytheme.playlist.style eq 'btn'"}
+		{notempty name="obj.vod_play_list"}
+		<div class="myui-panel myui-panel-bg clearfix">
+			<div class="myui-panel-box clearfix">
+				<div class="myui-panel_hd">
+					<div class="myui-panel__head active bottom-line clearfix">
+						{if $mytheme.playlist.sort}<a class="more sort-button pull-right" href="javascript:;"><i class="fa fa-sort-amount-asc"></i> 排序</a>{/if}
+						<h3 class="title">
+							{$mytheme.playlist.title}
+						</h3>
+					</div>	
+					<div class="mt15 bottom-line" style="padding: 8px 0;">
+						<ul class="nav nav-btn clearfix">
+							{maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}	
+							<li{if condition="$param.sid eq $vo.sid"} class="active"{/if}><a href="#playlist{$key}" data-toggle="tab">{$vo.player_info.show}</a></li>
+							{/maccms:foreach}								
+						</ul>
+					</div>																	
+				</div>
+				<div class="tab-content myui-panel_bd">
+					{maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}	
+					<div id="playlist{$key}" class="tab-pane fade in{if condition="$param.sid eq $vo.sid"} active{/if} clearfix">
+						{if $mytheme.playlist.tip}
+						<p class="text-muted col-pd">
+							{$vo.player_info.tip} 
+						</p>
+						{/if}
+						{include file="block/vod_play_list"}
+					</div>															
+					{/maccms:foreach}
+				</div>
+			</div>
+		</div>	
+		{if condition="$param.sid eq 0"}
+		<script type="text/javascript">
+			$(".tab-pane:first,.nav-btn li:first").addClass("active");
+		</script>
+		{/if}
+		{/notempty}
 	{elseif condition="$mytheme.playlist.style eq 'tab'"}
 		{notempty name="obj.vod_play_list"}
 		<div class="myui-panel myui-panel-bg clearfix">
@@ -94,7 +133,7 @@
 					{/maccms:foreach}
 				</div>
 			</div>
-		</div>	
+		</div>
 		{if condition="$param.sid eq 0"}
 		<script type="text/javascript">
 			$(".tab-pane:first").addClass("active");
@@ -102,16 +141,17 @@
 		{/if}
 		{/notempty}
 	{/if}
-	{if $mytheme.detail.ad && $mytheme.detail.ad1}
-	<div class="myui-panel myui-panel-bg clearfix">
-		<div class="myui-panel-box clearfix">
-			<div class="myui-panel_bd">
-				<div class="col-xs-1">
-					{$mytheme.detail.ad1}
-				</div>
+{/if}
+
+{if $mytheme.detail.ad && $mytheme.detail.ad3}
+<div class="myui-panel myui-panel-bg clearfix">
+	<div class="myui-panel-box clearfix">
+		<div class="myui-panel_bd">
+			<div class="col-xs-1">
+				{$mytheme.detail.ad3}
 			</div>
 		</div>
 	</div>
-	{/if}
+</div>
 {/if}
 

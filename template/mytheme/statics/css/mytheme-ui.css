@@ -110,12 +110,6 @@ textarea.form-control{ height: auto; padding: 10px;}
 .border-4x{ border: 4px solid;}
 .border-5x{ border: 5px solid;}
 
-/* radius */
-.radius-2{ border-radius: 2px;}
-.radius-4{ border-radius: 4px;}
-.radius-6{ border-radius: 6px;}
-.radius-50{ border-radius: 50%;}
-
 /* badge */
 .badge{display: inline-block; margin-right: 10px; width: 18px; height: 18px; text-align: center; line-height: 18px; border-radius: 2px; font-size: 12px;}
 .badge-radius{ border-radius: 50%;}
@@ -153,14 +147,15 @@ textarea.form-control{ height: auto; padding: 10px;}
 .nav-btn > li a{ padding: 8px 12px; border-radius: 5px;}
 
 /* pic-tag */
-.pic-tag{ position: absolute; z-index: 99; padding:2px 5px; font-size: 12px; border-radius: 2px;}
+.pic-tag{ display: block; position: absolute; padding: 2px 0; width: 100%; z-index: 99;}
 .pic-tag-top{top: 5px; left: 5px;}
 .pic-tag-left{bottom: 5px; left: 5px;}
-.pic-tag-bottom{bottom: 5px; right: 5px;}
-.pic-tag-right{top: 5px; right: 5px;}
+.pic-tag-bottom{bottom: 5px; right: 5px; text-align: right;}
+.pic-tag-right{top: 5px; right: 5px; text-align: right;}
 .pic-tag-h{left: 0; top: 0; padding:2px 8px; border-radius: 0 0 8px 0;}
 .pic-tag-lg{ padding: 4px 10px;}
-.pic-text{display: block; width: 100%; position: absolute; z-index: 99; bottom: 0; left: 0; padding:5px 10px; font-size: 12px; overflow:hidden; text-overflow:ellipsis; -o-text-overflow:ellipsis; white-space:nowrap;}
+.pic-tag .tag{ display: inline-block; margin: 0 4px; padding: 0 5px; font-size: 12px; border-radius: 2px;}
+.pic-text{display: block; width: 100%; position: absolute; z-index: 98; bottom: 0; left: 0; padding:5px 10px; font-size: 12px; overflow:hidden; text-overflow:ellipsis; -o-text-overflow:ellipsis; white-space:nowrap;}
 .pic-text-silde{ padding-bottom: 20px; font-size: 14px;}
 .pic-text-lg{ padding: 8px 20px; font-size: 14px;}
 .pic-title-top{display: block; width: 100%; position: absolute; top: 0; left: 0; padding:5px 10px 10px; font-size: 12px; word-break:break-all; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
@@ -207,7 +202,6 @@ textarea.form-control{ height: auto; padding: 10px;}
 .myui-vodlist__thumb .play-v{ opacity: 0; position: absolute; top: 0; z-index: 1; width: 100%; height: 100%; background-color: rgba(0,0,0,.2); -webkit-transition: all ease-out .35s; transition: all ease-out .35s;}
 .myui-vodlist__thumb .play.active{ opacity: 1;}
 .myui-vodlist__thumb:hover .play,.myui-vodlist__thumb:hover .play-v{ opacity: 1;}
-.myui-vodlist__thumb .badge{ position: absolute; bottom: 0; left: 0;}
 .myui-vodlist__detail.active{ padding: 0 10px 10px;}
 .myui-vodlist__detail .title{ margin: 10px 0 0; font-size: 15px; font-weight: 700;}
 .myui-vodlist__detail .title.active{ font-size: 16px; margin-bottom: 10px;}
@@ -301,9 +295,9 @@ textarea.form-control{ height: auto; padding: 10px;}
 .styu-message__list.child{ margin-top: 20px; padding-bottom: 0;}
 
 /* msg */
-.myui-msg__form{ width: 320px; padding: 50px; margin: 50px auto; box-shadow: 0 2px 5px rgba(0,0,0,.1);}
+.myui-msg__form{ max-width: 380px; margin: 0 auto; padding: 50px;}
 .myui-msg__head{ margin-bottom: 20px;}
-.myui-msg__head .fa{ font-size: 80px; color: red;}
+.myui-msg__head .fa{ margin-bottom: 20px; font-size: 80px; color: red;}
 
 /* page */
 .myui-page{ margin-bottom:30px}
@@ -311,7 +305,7 @@ textarea.form-control{ height: auto; padding: 10px;}
 .myui-page li .num,.myui-page li a{ padding:5px 15px;}
 
 /* extra */
-.myui-extra{position:fixed; z-index: 999; right:50px; bottom:50px}
+.myui-extra{position:fixed; z-index: 999; right:50px;bottom:50px}
 .myui-extra li{position:relative;padding:15px 10px 0}
 .myui-extra li a{display:block;width:50px;height:50px;line-height:50px;text-align:center;border-radius:4px;font-size:18px;cursor:pointer;}
 

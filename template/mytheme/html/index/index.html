@@ -7,46 +7,39 @@
 </head>
 	<body class="active">
 		
+		{include file="public/head"}<!--头部 -->
 		
-		{include file="public/head"}
-		<div class="myui-container-bg">
-			<div class="container">
-				<div class="row">
-					{include file="index/slide"}<!-- 推荐如需商用建议支持正版-源码有三岁半资源网分享https://www.sansuib.com -->
-				</div>
-			</div>
-		</div>
+		{include file="index/slide"}<!-- 轮播 -->
+		
 	    <div class="container">
-	        <div class="row">
-				
-				{if $mytheme.home_tips.is}
-				<div class="myui-panel active myui-panel-bg2 clearfix">
-					<div class="myui-panel-box clearfix">
-						<div class="col-xs-1">
-							{if $mytheme.home_tips.play}
-							<marquee scrollamount="3">{$mytheme.home_tips.text}</marquee>
-							{else}
-							<div class="clearfix">
-								{$mytheme.home_tips.text}
-							</div>
-							{/if}
-						</div>
-					</div>
-				</div>
-				{/if}
-				
-				{include file="index/hot"}<!-- 推荐 -->
-				
+	        <div class="row"> 
+	        	
+	        	{include file="index/hot"}<!-- 推荐 -->	              	
+
 	        	{include file="index/list"}<!-- 列表 -->
+	        	
+	        	{include file="index/video"}<!-- 视频 -->
+				
+	        	{include file="index/topic"}<!-- 专题 -->       	
+	        	
+	        	{include file="index/rank"}<!-- 排行 -->
+	        	
+	        	{include file="index/actor"}<!-- 演员 -->
+	        	
+	        	{include file="index/art"}<!-- 资讯 -->
+	        	
+	        	{include file="index/logo"}<!-- 合作 -->
+	        	
+	        	{include file="index/link"}<!-- 友链 -->
+	        	
 	        </div>
 	    </div>
-		
-		{include file="public/foot"}
-
+	    
+		{include file="public/foot"}<!-- 尾部 -->
+	
 	</body>
 </html>
-
-<?php
+<?php 
 	$path = 'application/data/config/quickmenu.txt';
 	$info = ''.$my[name].','.$maccms[path_tpl].'admin/index.php'; 
 	if (stristr(file_get_contents($path), $info)){

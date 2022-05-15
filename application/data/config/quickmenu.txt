@@ -5,4 +5,3 @@ Far采集插件,/addons/caiji/98k.php
 Fuck资源采集,fuckcj/union
 小黄鸭采集插件,Cjxhy/index
 MyTheme主题,/template/mytheme/admin/index.php
-首涂第二十六套-每日一学网,/template/mytheme/admin/index.php

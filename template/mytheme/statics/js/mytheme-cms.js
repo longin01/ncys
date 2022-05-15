@@ -180,7 +180,6 @@ var Myui = {
 	'Favorite': function() {
 		if($('.favorite').length>0){
 			$('body').on('click', 'a.favorite', function(e){
-				
 		        var $that = $(this);
 		        if($that.attr("data-id")){
 		            $.ajax({
@@ -214,35 +213,17 @@ var Myui = {
 		'Login':function(){
 			MyTheme.Layer.Div('.ajax_login');
 			$('body').on('click', '.login_form_submit', function(e){
-				$(this).unbind('click');
-				MyTheme.Ajax(maccms.path + '/index.php/user/login','post','json',$('.mac_login_form').serialize(),function(r){
+			    $(this).unbind('click');
+			    MyTheme.Ajax(maccms.path + '/index.php/user/login','post','json',$('.mac_login_form').serialize(),function(r){
 					layer.msg(r.msg);
-					if(r.code == 1){
+			        if(r.code == 1){
 						layer.msg(r.msg,{anim:5},function(){
-							location.reload();
+						    location.reload();
 						});
-					}
-				});
+			        }
+			    });
 			});
 		}
-	},	
-	'Other': {
-		'Top': function(high){
-			$(window).scroll(function(){
-				if($(window).scrollTop()>10){
-					$("#header-top").removeClass("color");
-				}else if($(window).scrollTop()<110){
-					$("#header-top").addClass("color");
-				}
-			});
-		},
-		'Topbg': function(high){				
-			$(".myui-topbg").css({"height":high});
-			$("#header-top").addClass("color");
-			if(myui.topfixed==1){
-				Myui.Other.Top();
-			}
-		}	
 	}
 };
 
@@ -250,5 +231,5 @@ $(function(){
 	Myui.Comment.Init();
 	Myui.Gbook.Init();
 	Myui.Autocomplete();
-	Myui.Favorite();	
+	Myui.Favorite();
 });

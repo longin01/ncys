@@ -1,5 +1,5 @@
 <blockquote class="layui-elem-quote" style="margin: 20px 0;">
-	欢迎使用首途【第二十六套】主题，本主题由搬运狗（www.sansuib.com）完美剔除授权！
+	欢迎使用首途【第二十一套】主题，本主题由搬运狗（www.banyundog.com）完美剔除授权！
 </blockquote>
 
 <div class="layui-row">
@@ -45,7 +45,7 @@
 		        </tr>
 		        <tr>
 		            <td>官网地址</td>
-		            <td> <a target="_blank" href="<?php echo($my['website']) ?>">搬运狗（www.sansuib.com）</a></td>
+		            <td> <a target="_blank" href="<?php echo($my['website']) ?>">搬运狗（www.banyundog.com）</a></td>
 		        </tr>
 		    </tbody>
 		</table>
@@ -109,8 +109,8 @@
 		<a class="layui-btn layui-btn-primary" href="backups.php" target="_blank">导出备份</a>
 		<a class="layui-btn layui-btn-primary" href="?do=home_import">导入备份</a>
 		<a class="layui-btn layui-btn-primary book" target="_blank" href="https://kdocs.cn/l/shWCs90Kc">使用手册</a> 
-		<a class="layui-btn layui-btn-primary theme" target='_blank' href="http://www.sansuib.com/">搬运狗</a> 
-		<a class="layui-btn layui-btn-primary theme" target='_blank' href="http://www.sansuib.com/11.html">无水印海报</a>
+		<a class="layui-btn layui-btn-primary theme" target='_blank' href="http://www.banyundog.com/">搬运狗</a> 
+		<a class="layui-btn layui-btn-primary theme" target='_blank' href="http://www.banyundog.com/11.html">无水印海报</a>
 			<a class="layui-btn layui-btn-primary theme" target='_blank' href="https://vip.52jiexi.top/?url=">无广告解析</a>
 	</blockquote>
 </div>

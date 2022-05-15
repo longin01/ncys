@@ -1,6 +1,6 @@
 <li>
 	<div class="thumb">
-		<a class="myui-vodlist__thumb img-xs-70" style="background: url({$vo.vod_pic|mac_url_img});"{if $mytheme.site.link} href="{:mac_url_vod_play($vo,['sid'=>1,'nid'=>1])}"{else} href="{:mac_url_vod_detail($vo)}"{/if} title="{$vo.vod_name}"></a>
+		<a class="myui-vodlist__thumb img-xs-70 lazyload"{if $mytheme.site.link} href="{:mac_url_vod_play($vo,['sid'=>1,'nid'=>1])}"{else} href="{:mac_url_vod_detail($vo)}"{/if} title="{$vo.vod_name}" data-original="{$vo.vod_pic|mac_url_img}"></a>
 	</div>
 	<div class="detail detail-side">
 		<h4 class="title"><a{if $mytheme.site.link} href="{:mac_url_vod_play($vo,['sid'=>1,'nid'=>1])}"{else} href="{:mac_url_vod_detail($vo)}"{/if}><i class="fa fa-angle-right text-muted pull-right"></i> {$vo.vod_name|mac_substring=8}</a></h4>

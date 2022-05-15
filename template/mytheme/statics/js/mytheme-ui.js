@@ -4,7 +4,6 @@
  * 官网：https://www.mytheme.cn
  */
 
-
 var MyTheme = {
 	'Browser': {
 		url: document.URL,
@@ -122,8 +121,8 @@ var MyTheme = {
 			$(".lazyload").lazyload({
 				effect: "fadeIn",
 				threshold: 200,
-				failure_limit : 1,
-				skip_invisible : false,
+				failure_limit : 10,
+				skip_invisible : false
 			});
 		},
 		'Qrcode': {
@@ -152,7 +151,9 @@ var MyTheme = {
 					$(".flickity").each(function(){
 						var $that = $(this);
 	                	MyTheme.Images.Flickity.Set($that,$that.attr('data-align'),$that.attr('data-dots'),$that.attr('data-next'),$that.attr('data-play'));
-						//MyTheme.Images.Lazyload();
+						$(this).click(function() {
+							$(".lazyload").lazyload();
+						});
 	                });
 				}
 			},
@@ -169,7 +170,7 @@ var MyTheme = {
 				  	percentPosition: true,
 				  	prevNextButtons: next
 				});	
-			}
+			}	
 		}
 	},
 	'Link': {
@@ -256,23 +257,14 @@ var MyTheme = {
 				content: $(id)
 			});
 		},
-		'Text': function(title,text,wide,high) {
-			layer.open({
-				type: 1,
-				title: title,
-				skin: 'layui-layer-rim',
-				area: [wide+'px', high+'px'],
-				content: '<div class="col-pd">'+text+'</div>'
-			});
-		},
-		'Popbody': function(name,title,html,day,wide,high) {
+		'Popbody': function(name,html,day,wide,high) {
 			var pop_is = MyTheme.Cookie.Get(name);
 			var html = $(html).html();
 			if(!pop_is){
 				layer.open({
 					type: 1,
-					title: title,
-					skin: 'layui-layer-rim',
+					title: false,
+					//skin: 'layui-layer-rim',
 					content: html,
 					area: [wide+'px', high+'px'],
 					cancel: function(){
@@ -297,9 +289,7 @@ var MyTheme = {
 				});
 				headroom.init();
 			}
-			$(".dropdown-hover").click(function(){
-				$(this).find(".dropdown-box").toggle();
-			});
+			
 		},
 		'Popup': function(id) {
 			$(id).addClass("popup-visible");
@@ -320,6 +310,7 @@ var MyTheme = {
 				var b = $(a.target).text();
 				$(a.relatedTarget).text();
 				$("span.active-tab").html(b);
+				$(".lazyload").lazyload();
 			});
 		},
 		'Skin': function() {
@@ -388,6 +379,9 @@ var MyTheme = {
 					$(this).remove();
 				});
 			});
+			$(".dropdown-hover").click(function(){
+				$(this).find(".dropdown-box").toggle();
+			});
 		},
 		'Scrolltop': function() {
 			var a = $(window);
@@ -404,15 +398,15 @@ var MyTheme = {
 		},
 		'Slidedown': function() {
 			var display = $('.slideDown-box');
+			
 			$(".slideDown-btn").click(function() {
+				
 		  		if(display.css('display') == 'block'){
 		  			display.slideUp("slow");
 		  			$(this).html('展开  <i class="fa fa-angle-down"></i>');
-					MyTheme.Mobile.Nav.Init();
 				}else{
 					display.slideDown("slow"); 
 					$(this).html('收起   <i class="fa fa-angle-up"></i>');
-					MyTheme.Mobile.Nav.Init();
 				}
 			});
 		},
@@ -491,6 +485,9 @@ var MyTheme = {
 					PlayerSide.css({"height":LeftHeight,"overflow":"auto"});
 					PlayerSide.scrollTop(Position);
 				}
+				PlayerSide.scroll(function(){
+					$(".lazyload").lazyload();
+				});
 			}		
 			if($(".player-fixed").length){
 				if(!MyTheme.Browser.useragent.mobile){
@@ -498,10 +495,11 @@ var MyTheme = {
 						if($(window).scrollTop()>window.outerHeight){
 							$(".player-fixed").addClass("fixed fadeInDown");
 							$(".player-fixed-off").show();
-							
+							$(".close-box").hide();
 						}else if($(window).scrollTop()<window.outerHeight){
 							$(".player-fixed").removeClass("fixed fadeInDown");
 							$(".player-fixed-off").hide();
+							$(".close-box").show();
 						}
 					});
 				}
@@ -516,14 +514,187 @@ var MyTheme = {
 				$(this).parents(".close-box").remove();
 			});
 		},
-		'Roll': function(obj,higt) {
+		'Roll': function(obj,higt,time) {
 			setInterval(function(){ 
 				$(obj).find("ul").animate({
 					marginTop : higt,
-				},500,function(){
+				},time,function(){
 					$(this).css({marginTop : "0px"}).find("li:first").appendTo(this);
 				})
 			}, 3000);
+		},
+		'Xunlei': function() {
+			$.getScript(myui.thunderurl, function() {
+
+				$(".common_down").on("click",function(){
+					var link=$(this).parents("li").find("input[type='text']");
+					var url=link.eq(0).val();
+					var filename=$(this).parents("li").find(".text").eq(0).text();
+					thunderLink.newTask({
+						downloadDir: '下载目录',
+						tasks: [{
+							name: filename,
+							url: url,
+							size: 0
+						}]
+					});
+				});
+
+				$("input[name='checkall']").on("click",function(e){
+					var checkboxs=$(this).parent().parent().parent().parent().find("input[name^='down_url_list_']");
+					for(let i=checkboxs.length;i--;)
+						checkboxs[i].checked=this.checked;
+				});
+		
+				$(".thunder_down_all").on("click",function(){
+					checked=$(this).parents(".downlist").find("li input[type='checkbox']:checked");
+					
+					if(checked.length<1){
+							layer.msg("请选中要下载的文件");
+						}
+					else
+						{
+							var tasks=[];
+							var links=$(this).parents(".downlist").find("li .down_url");
+							var selectbox=$(this).parents(".downlist").find("li input[type='checkbox']");
+				
+							for(let i=0;i<links.length;++i){
+								if(selectbox.eq(i).is(':checked')){
+									var task={
+										url:links.eq(i).val(),
+										size:0
+									};
+									tasks.push(task);
+								}
+							}
+									
+							thunderLink.newTask({
+								downloadDir: '下载目录',
+								installFile: '',
+								taskGroupName: '下载文件',
+								tasks: tasks,
+								excludePath: ''
+						   });           	
+					}
+					
+				});
+			
+				//启动迅雷看看
+				if($(".thunderkk").length){
+					$(".thunderkk").on("click",function(){
+						var link=$(this).parents(".downlist").find("li .down_url");
+						var url=link.eq(0).val();
+						kkPlay(url,"");
+					});        
+				
+					var kkDapCtrl = null;
+					
+					function kkGetDapCtrl() {
+						if (null == kkDapCtrl) {
+							try {
+								if (window.ActiveXObject) {
+									kkDapCtrl = new ActiveXObject("DapCtrl.DapCtrl");
+								} else {
+									var browserPlugins = navigator.plugins;
+									for (var bpi = 0; bpi < browserPlugins.length; bpi++) {
+										try {
+											if (browserPlugins[bpi].name.indexOf('Thunder DapCtrl') != -1) {
+												var e = document.createElement("object");
+												e.id = "dapctrl_history";
+												e.type = "application/x-thunder-dapctrl";
+												e.width = 0;
+												e.height = 0;
+												document.body.appendChild(e);
+												break;
+											}
+										} catch(e) {}
+									}
+									kkDapCtrl = document.getElementById('dapctrl_history');
+								}
+							} catch(e) {}
+						}
+						return kkDapCtrl;
+					}
+					function kkPlay(url, moviename) {
+						var dapCtrl = kkGetDapCtrl();
+						try {
+							var ver = dapCtrl.GetThunderVer("KANKAN", "INSTALL");
+							var type = dapCtrl.Get("IXMPPACKAGETYPE");
+							if (ver && type && ver >= 672 && type >= 2401) {
+								dapCtrl.Put("SXMP4ARG", '"' + url + '" /title "' + moviename + '" /startfrom "_web_xunbo" /openfrom "_web_xunbo"');
+							} else {
+								var r = confirm("\u8bf7\u5148\u4e0b\u8f7d\u5b89\u88c5\u8fc5\u96f7\u770b\u770b\uff0c\u70b9\u786e\u5b9a\u8fdb\u5165\u8fc5\u96f7\u770b\u770b\u5b98\u7f51\u4e0b\u8f7d");
+								if (r == true) {
+									window.open('http://www.kankan.com/app/xmp.html','','');
+								}
+							}
+						} catch(e) {
+							var r = confirm("\u8bf7\u5148\u4e0b\u8f7d\u5b89\u88c5\u8fc5\u96f7\u770b\u770b\uff0c\u70b9\u786e\u5b9a\u8fdb\u5165\u8fc5\u96f7\u770b\u770b\u5b98\u7f51\u4e0b\u8f7d");
+							if (r == true) {
+								window.open('http://www.kankan.com/app/xmp.html','','');
+							}
+						}
+					}
+				}
+			});
+			$(".Codyurl").each(function(){
+				var downurl = $(this).attr("data-text");
+				MyTheme.Link.Copy.Set(this,downurl);
+			});
+		},
+		'Language':function(){
+			
+			String.prototype.s2t = function() {
+				var k='';
+				for(var i=0;i<this.length;i++){
+					var c = this.charAt(i);
+					var p = simple().indexOf(c)
+					k += p < 0 ? c : traditional().charAt(p);
+				}
+				return k;
+			 }
+			 
+			 String.prototype.t2s = function() {			 
+					var k='';
+					for(var i=0;i<this.length;i++){
+						var c = this.charAt(i);
+						var p = traditional().indexOf(c)
+						k += p < 0 ? c : simple().charAt(p);
+					}
+			      return k;
+			 }
+			 
+			function s2t() {
+				document.body.innerHTML = document.body.innerHTML.s2t();
+			}
+			
+			function t2s() {
+			    document.body.innerHTML = document.body.innerHTML.t2s();
+			}
+			
+			var language = MyTheme.Cookie.Get('language')||myui.language;
+			if (language == 1) {
+				s2t();
+			} else {
+				t2s();
+			}
+			
+			$('.language').click(function() {
+				if (language == 0) {
+					layer.msg("正在切换繁体，请稍后...",{anim:5,time: 2000},function(){
+						s2t();
+						window.location.reload();
+					});
+					MyTheme.Cookie.Set('language',1,365);
+				} else {
+					layer.msg("正在切换简体，请稍后...",{anim:5,time: 2000},function(){
+						t2s();
+						window.location.reload();
+					});
+					MyTheme.Cookie.Set('language',0,365);
+				}
+			});
+			
 		}
 	}	
 };
@@ -539,7 +710,6 @@ $(function(){
 	MyTheme.Link.Short();
 	MyTheme.Other.Bootstrap();
 	MyTheme.Other.Sort();
-	MyTheme.Other.Headroom();
 	MyTheme.Other.Search();
 	MyTheme.Other.Collapse();
 	MyTheme.Other.Slidedown();
@@ -547,4 +717,6 @@ $(function(){
 	MyTheme.Other.History.Init();
 	MyTheme.Other.Player();
 	MyTheme.Other.Close();
+	MyTheme.Other.Xunlei();
+	
 });

@@ -1,5 +1,5 @@
 <?php 
-//如需商用建议支持正版-源码有三岁半资源网分享https://www.sansuib.com
+
 if(!extension_loaded('SourceGuardian')){
 	header("Content-Type: text/html;charset=utf-8"); 
 	echo '<title>Mytheme</title>'; 
@@ -109,7 +109,7 @@ if(isset($_GET['do'])) {
 	$total_time=substr($end_time-$start_time,0,5);
 	if($total_time=="0.000") {$total_time="0.001";}
   ?>
-  &copy; www.sansuib.com
+  &copy; www.banyundog.com
 </div>
 </div>
 </body>

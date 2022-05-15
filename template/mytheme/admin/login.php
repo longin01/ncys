@@ -1,5 +1,4 @@
 <?php
-//如需商用建议支持正版-源码有三岁半资源网分享https://www.sansuib.com
 ob_start();
 define('loginpage',1);
 require('config.php');

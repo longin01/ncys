@@ -1,5 +1,5 @@
 <?php
-//如需商用建议支持正版-源码有三岁半资源网分享https://www.sansuib.com
+
 $my = parse_ini_file(dirname(dirname(__FILE__)) . "/info.ini", true);
 date_default_timezone_set("Asia/Shanghai");
 ini_set("display_errors", "On");
