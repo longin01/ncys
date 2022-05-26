@@ -13,6 +13,32 @@ return array (
     'tip' => '无需安装任何插件',
     'id' => 'kcm3u8',
   ),
+  'xlm3u8' => 
+  array (
+    'status' => '1',
+    'from' => 'xlm3u8',
+    'show' => '新浪资源2',
+    'des' => '支持手机电脑在线播放',
+    'target' => '_self',
+    'ps' => '0',
+    'parse' => '',
+    'sort' => '1219',
+    'tip' => '无需安装任何插件',
+    'id' => 'xlm3u8',
+  ),
+  'xiuse' => 
+  array (
+    'status' => '1',
+    'from' => 'xiuse',
+    'show' => '秀色播放',
+    'des' => '支持手机电脑在线播放',
+    'target' => '_self',
+    'ps' => '0',
+    'parse' => '',
+    'sort' => '1196',
+    'tip' => '无需安装任何插件',
+    'id' => 'xiuse',
+  ),
   'hnm3u8' => 
   array (
     'status' => '1',
@@ -26,6 +52,19 @@ return array (
     'tip' => '无需安装任何插件',
     'id' => 'hnm3u8',
   ),
+  'swm3u8' => 
+  array (
+    'status' => '1',
+    'from' => 'swm3u8',
+    'show' => '丝袜播放器',
+    'des' => '支持手机电脑在线播放',
+    'target' => '_self',
+    'ps' => '0',
+    'parse' => '',
+    'sort' => '1191',
+    'tip' => '无需安装任何插件',
+    'id' => 'swm3u8',
+  ),
   'hjm3u8' => 
   array (
     'status' => '1',
@@ -38,6 +77,32 @@ return array (
     'sort' => '1105',
     'tip' => '无需安装任何插件',
     'id' => 'hjm3u8',
+  ),
+  'lezy' => 
+  array (
+    'status' => '1',
+    'from' => 'lezy',
+    'show' => '乐库云播',
+    'des' => '支持手机电脑在线播放',
+    'target' => '_self',
+    'ps' => '0',
+    'parse' => '',
+    'sort' => '1072',
+    'tip' => '无需安装任何插件',
+    'id' => 'lezy',
+  ),
+  'kkm3u8' => 
+  array (
+    'status' => '1',
+    'from' => 'kkm3u8',
+    'show' => 'KK在线',
+    'des' => '支持手机电脑在线播放',
+    'target' => '_self',
+    'ps' => '0',
+    'parse' => '',
+    'sort' => '1045',
+    'tip' => '无需安装任何插件',
+    'id' => 'kkm3u8',
   ),
   'ckplayer' => 
   array (

@@ -1,0 +1,4 @@
+<?php
+//000000003600
+ exit();?>
+s:747:" <form class="comment_form clearfix"><input type="hidden" name="comment_pid" value="0"><div class="myui-comment__form col-pd clearfix"><textarea class="comment_data form-control" name="comment_content" rows="5" placeholder="请输入评论内容..."></textarea><div class="pt20 clearfix"><span class="gbook_remaining text-muted hidden-xs">最多可以输入200字符</span><div class="pull-right"><img id="verify_img" src="/index.php/verify/index.html" onClick="this.src=this.src+'?'" alt="单击刷新" height="30" />&nbsp;&nbsp;<input class="form-control verify" type="text" id="verify" name="verify" placeholder="验证码" /><a href="javascript:;" class="my_comment_submit btn btn-primary pull-right">确认发布</a></div></div></div></form> ";
