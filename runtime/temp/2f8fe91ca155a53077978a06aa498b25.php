@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="<?php echo mac_default($mytheme['site']['static'],''.$maccms['path_tpl'].''); ?>statics/css/mytheme-ui.css?v=<?php echo $my['version']; ?>" type="text/css" />
 <link rel="stylesheet" href="<?php echo mac_default($mytheme['site']['static'],''.$maccms['path_tpl'].''); ?>statics/css/mytheme-site.css?v=<?php echo $my['version']; ?>" type="text/css" />
 <link rel="stylesheet" href="<?php echo mac_default($mytheme['site']['static'],''.$maccms['path_tpl'].''); ?>statics/css/<?php echo $mytheme['style']['default']; ?>.css?v=<?php echo $my['version']; ?>" type="text/css" name="default" />
-<?php if($mytheme['skin']['is'] && !$mytheme['color']['is']): $_628e06253989a=explode(',',''.$mytheme['skin']['style'].''); if(is_array($_628e06253989a) || $_628e06253989a instanceof \think\Collection || $_628e06253989a instanceof \think\Paginator): if( count($_628e06253989a)==0 ) : echo "" ;else: foreach($_628e06253989a as $key=>$vo): ?>
+<?php if($mytheme['skin']['is'] && !$mytheme['color']['is']): $_62945c5f9f0b3=explode(',',''.$mytheme['skin']['style'].''); if(is_array($_62945c5f9f0b3) || $_62945c5f9f0b3 instanceof \think\Collection || $_62945c5f9f0b3 instanceof \think\Paginator): if( count($_62945c5f9f0b3)==0 ) : echo "" ;else: foreach($_62945c5f9f0b3 as $key=>$vo): ?>
 <link rel="stylesheet" href="<?php echo mac_default($mytheme['site']['static'],''.$maccms['path_tpl'].''); ?>statics/css/<?php echo $vo; ?>.css?v=<?php echo $my['version']; ?>" type="text/css" name="skin" disabled/>
 <?php endforeach; endif; else: echo "" ;endif; endif; ?>
 <script> 
@@ -114,7 +114,7 @@
 					<li class="<?php if($maccms['aid'] == 1): ?> active<?php endif; ?> hidden-sm hidden-xs"><a href="<?php echo $maccms['path']; ?>">首页</a></li>
 					<?php $__TAG__ = '{"num":"all","order":"asc","by":"sort","ids":"'.$mytheme['nav']['id'].'","id":"vo","key":"key"}';$__LIST__ = model("Type")->listCacheData($__TAG__); if(is_array($__LIST__['list']) || $__LIST__['list'] instanceof \think\Collection || $__LIST__['list'] instanceof \think\Paginator): $key = 0; $__LIST__ = $__LIST__['list'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($key % 2 );++$key;?>
                     <li class="<?php if(($vo['type_id'] == $GLOBALS['type_id'] || $vo['type_id'] == $GLOBALS['type_pid'])): ?> active<?php endif; ?> hidden-sm hidden-xs"><a href="<?php echo mac_url_type($vo); ?>"><?php echo $vo['type_name']; ?></a></li>
-                    <?php endforeach; endif; else: echo "" ;endif; if($mytheme['subnav']['is']): $__FOR_START_554893282__=1;$__FOR_END_554893282__=5;for($i=$__FOR_START_554893282__;$i <= $__FOR_END_554893282__;$i+=1){ if($mytheme['subnav']['url'.$i.'']): ?><li class="<?php if($GLOBALS['type_id'] == $mytheme['subnav']['id'.$i.''] || $maccms['aid'] == $mytheme['subnav']['id'.$i.'']): ?>active<?php endif; ?> hidden-md hidden-sm hidden-xs"><a href="<?php echo $mytheme['subnav']['url'.$i.'']; ?>"><?php echo $mytheme['subnav']['text'.$i.'']; ?></a></li><?php endif; } endif; if($maccms['aid'] == 15): ?>
+                    <?php endforeach; endif; else: echo "" ;endif; if($mytheme['subnav']['is']): $__FOR_START_1263550928__=1;$__FOR_END_1263550928__=5;for($i=$__FOR_START_1263550928__;$i <= $__FOR_END_1263550928__;$i+=1){ if($mytheme['subnav']['url'.$i.'']): ?><li class="<?php if($GLOBALS['type_id'] == $mytheme['subnav']['id'.$i.''] || $maccms['aid'] == $mytheme['subnav']['id'.$i.'']): ?>active<?php endif; ?> hidden-md hidden-sm hidden-xs"><a href="<?php echo $mytheme['subnav']['url'.$i.'']; ?>"><?php echo $mytheme['subnav']['text'.$i.'']; ?></a></li><?php endif; } endif; if($maccms['aid'] == 15): ?>
 					<li class="visible-xs">
 						<a href="<?php echo $maccms['path']; ?>"> 首页</a>
 					</li>
@@ -126,7 +126,7 @@
 								<li class="col-lg-5 col-md-5 col-sm-5 col-xs-3"><a class="btn btn-sm btn-block<?php if($maccms['aid'] == 1): ?> btn-warm<?php else: ?> btn-default<?php endif; ?>" href="<?php echo $maccms['path']; ?>">首页</a></li>
 								<?php $__TAG__ = '{"num":"all","order":"asc","by":"sort","ids":"'.$mytheme['nav']['more_id'].'","id":"vo","key":"key"}';$__LIST__ = model("Type")->listCacheData($__TAG__); if(is_array($__LIST__['list']) || $__LIST__['list'] instanceof \think\Collection || $__LIST__['list'] instanceof \think\Paginator): $key = 0; $__LIST__ = $__LIST__['list'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($key % 2 );++$key;?>
 			                    <li class="col-lg-5 col-md-5 col-sm-5 col-xs-3"><a class="btn btn-sm btn-block<?php if(($vo['type_id'] == $GLOBALS['type_id'])): ?> btn-warm<?php else: ?> btn-default<?php endif; ?>" href="<?php echo mac_url_type($vo); ?>"><?php echo $vo['type_name']; ?></a></li>
-			                    <?php endforeach; endif; else: echo "" ;endif; if($mytheme['subnav']['is']): $__FOR_START_990014400__=1;$__FOR_END_990014400__=5;for($i=$__FOR_START_990014400__;$i <= $__FOR_END_990014400__;$i+=1){ if($mytheme['subnav']['url'.$i.'']): ?><li class="col-lg-5 col-md-5 col-sm-5 col-xs-3"><a  class="btn btn-sm btn-block btn-default" href="<?php echo $mytheme['subnav']['url'.$i.'']; ?>"><?php echo $mytheme['subnav']['text'.$i.'']; ?></a></li><?php endif; } endif; ?>
+			                    <?php endforeach; endif; else: echo "" ;endif; if($mytheme['subnav']['is']): $__FOR_START_1121751224__=1;$__FOR_END_1121751224__=5;for($i=$__FOR_START_1121751224__;$i <= $__FOR_END_1121751224__;$i+=1){ if($mytheme['subnav']['url'.$i.'']): ?><li class="col-lg-5 col-md-5 col-sm-5 col-xs-3"><a  class="btn btn-sm btn-block btn-default" href="<?php echo $mytheme['subnav']['url'.$i.'']; ?>"><?php echo $mytheme['subnav']['text'.$i.'']; ?></a></li><?php endif; } endif; ?>
 							</ul>
 						</div>
 					</li>
@@ -157,7 +157,7 @@
 							<p class="text-muted">
 								热门搜索
 							</p>
-							<?php $_628e062539676=explode(',',''.$mytheme['search'][hot].''); if(is_array($_628e062539676) || $_628e062539676 instanceof \think\Collection || $_628e062539676 instanceof \think\Paginator): if( count($_628e062539676)==0 ) : echo "" ;else: foreach($_628e062539676 as $key=>$vo): ?>
+							<?php $_62945c5f9edd0=explode(',',''.$mytheme['search'][hot].''); if(is_array($_62945c5f9edd0) || $_62945c5f9edd0 instanceof \think\Collection || $_62945c5f9edd0 instanceof \think\Paginator): if( count($_62945c5f9edd0)==0 ) : echo "" ;else: foreach($_62945c5f9edd0 as $key=>$vo): ?>
 							<p><a class="text-333" href="<?php echo mac_url('vod/search',['wd'=>$vo]); ?>" title=""><span class="badge<?php if($key+1 == 1): ?> badge-first<?php endif; if($key+1 == 2): ?> badge-second<?php endif; if($key+1 == 3): ?> badge-third<?php endif; ?>"><?php echo $key+1; ?></span> <?php echo $vo; ?></a></p>
 							<?php endforeach; endif; else: echo "" ;endif; ?>
 						</div>
@@ -200,7 +200,7 @@
 							</div>
 						</div>	
 					</li>
-					<?php endif; if($mytheme['nav1']['is']): $__FOR_START_787524274__=1;$__FOR_END_787524274__=3;for($i=$__FOR_START_787524274__;$i <= $__FOR_END_787524274__;$i+=1){ if($mytheme['nav1']['url'.$i.'']): ?><li><a href="<?php echo $mytheme['nav1']['url'.$i.'']; ?>" title="<?php echo $mytheme['nav1']['text'.$i.'']; ?>"><i class="fa <?php echo $mytheme['nav1']['icon'.$i.'']; ?>"></i></a></li><?php endif; } endif; if($maccms['user_status'] == 1): if($user['group']['group_id'] == 1): ?>
+					<?php endif; if($mytheme['nav1']['is']): $__FOR_START_45222852__=1;$__FOR_END_45222852__=3;for($i=$__FOR_START_45222852__;$i <= $__FOR_END_45222852__;$i+=1){ if($mytheme['nav1']['url'.$i.'']): ?><li><a href="<?php echo $mytheme['nav1']['url'.$i.'']; ?>" title="<?php echo $mytheme['nav1']['text'.$i.'']; ?>"><i class="fa <?php echo $mytheme['nav1']['icon'.$i.'']; ?>"></i></a></li><?php endif; } endif; if($maccms['user_status'] == 1): if($user['group']['group_id'] == 1): ?>
 					<li>
 						<a href="javascript:;" onclick="Myui.User.Login();"><i class="fa fa-user"></i></a>
 					</li>
@@ -380,7 +380,7 @@
 <?php endif; endif; ?>
 <!-- 推荐 -->	              	
 
-	        	<?php if($mytheme['home_list']['is']): $_628e062539148=explode(',',''.$mytheme['home_list']['id'].''); if(is_array($_628e062539148) || $_628e062539148 instanceof \think\Collection || $_628e062539148 instanceof \think\Paginator): if( count($_628e062539148)==0 ) : echo "" ;else: foreach($_628e062539148 as $key=>$vo): $__TAG__ = '{"order":"asc","by":"sort","ids":"'.$vo.'","id":"vo1","key":"key1","flag":"vod"}';$__LIST__ = model("Type")->listCacheData($__TAG__); if(is_array($__LIST__['list']) || $__LIST__['list'] instanceof \think\Collection || $__LIST__['list'] instanceof \think\Paginator): $key1 = 0; $__LIST__ = $__LIST__['list'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($key1 % 2 );++$key1;?>
+	        	<?php if($mytheme['home_list']['is']): $_62945c5f9e89c=explode(',',''.$mytheme['home_list']['id'].''); if(is_array($_62945c5f9e89c) || $_62945c5f9e89c instanceof \think\Collection || $_62945c5f9e89c instanceof \think\Paginator): if( count($_62945c5f9e89c)==0 ) : echo "" ;else: foreach($_62945c5f9e89c as $key=>$vo): $__TAG__ = '{"order":"asc","by":"sort","ids":"'.$vo.'","id":"vo1","key":"key1","flag":"vod"}';$__LIST__ = model("Type")->listCacheData($__TAG__); if(is_array($__LIST__['list']) || $__LIST__['list'] instanceof \think\Collection || $__LIST__['list'] instanceof \think\Paginator): $key1 = 0; $__LIST__ = $__LIST__['list'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($key1 % 2 );++$key1;?>
 <div class="myui-panel myui-panel-bg clearfix">
 	<div class="myui-panel-box clearfix">		
 		<div class="myui-panel_bd clearfix">
@@ -647,7 +647,7 @@
 		</div>
 		<div class="myui-panel_bd clearfix">
 			<ul class="myui-link__pic clearfix">
-				<?php $_628e062538e05=explode(',',''.$mytheme['home_partner']['name'].''); if(is_array($_628e062538e05) || $_628e062538e05 instanceof \think\Collection || $_628e062538e05 instanceof \think\Paginator): if( count($_628e062538e05)==0 ) : echo "" ;else: foreach($_628e062538e05 as $key=>$vo): ?>
+				<?php $_62945c5f9e534=explode(',',''.$mytheme['home_partner']['name'].''); if(is_array($_62945c5f9e534) || $_62945c5f9e534 instanceof \think\Collection || $_62945c5f9e534 instanceof \think\Paginator): if( count($_62945c5f9e534)==0 ) : echo "" ;else: foreach($_62945c5f9e534 as $key=>$vo): ?>
 				<li class="col-md-<?php echo $mytheme['home_partner']['col']; ?> col-sm-4 col-xs-3">
 					<img class="img-responsive" src="<?php echo $mytheme['home_partner']['path']; ?><?php echo $vo; ?>.png"/>
 				</li>
@@ -776,7 +776,7 @@
 
 <?php if($mytheme['tabbar']['is']): ?>
 <div class="myui-nav__tabbar">
-	<?php $__FOR_START_1935922642__=1;$__FOR_END_1935922642__=6;for($i=$__FOR_START_1935922642__;$i <= $__FOR_END_1935922642__;$i+=1){ if($mytheme['tabbar']['url'.$i.'']): ?>
+	<?php $__FOR_START_874865694__=1;$__FOR_END_874865694__=6;for($i=$__FOR_START_874865694__;$i <= $__FOR_END_874865694__;$i+=1){ if($mytheme['tabbar']['url'.$i.'']): ?>
 	<a class="item" href="<?php echo $mytheme['tabbar']['url'.$i.'']; ?>">
 		<img class="icon-img" src="<?php echo $maccms[path_tpl]; ?>statics/icon/<?php echo $mytheme['tabbar']['img'.$i.'']; if($GLOBALS['type_id'] == $mytheme['tabbar']['id'.$i.''] || $maccms['aid'] == $mytheme['tabbar']['id'.$i.'']): ?>_on<?php endif; ?>.png"/><p class="title"><?php echo $mytheme['tabbar']['title'.$i.'']; ?></p>
 		</a>
@@ -811,7 +811,7 @@
 			</div>
 		</div>
 	</li>
-	<?php endif; if($mytheme['nav2']['sub']): $__FOR_START_1306102798__=1;$__FOR_END_1306102798__=3;for($i=$__FOR_START_1306102798__;$i <= $__FOR_END_1306102798__;$i+=1){ if($mytheme['nav2']['url'.$i.'']): ?><li><a href="<?php echo $mytheme['nav2']['url'.$i.'']; ?>" title="<?php echo $mytheme['nav2']['text'.$i.'']; ?>"><i class="fa <?php echo $mytheme['nav2']['icon'.$i.'']; ?>"></i></a></li><?php endif; } endif; ?>
+	<?php endif; if($mytheme['nav2']['sub']): $__FOR_START_92753005__=1;$__FOR_END_92753005__=3;for($i=$__FOR_START_92753005__;$i <= $__FOR_END_92753005__;$i+=1){ if($mytheme['nav2']['url'.$i.'']): ?><li><a href="<?php echo $mytheme['nav2']['url'.$i.'']; ?>" title="<?php echo $mytheme['nav2']['text'.$i.'']; ?>"><i class="fa <?php echo $mytheme['nav2']['icon'.$i.'']; ?>"></i></a></li><?php endif; } endif; ?>
 </ul>
 <?php endif; if($mytheme['notice']['is']): ?>
 <div class="noticetext hide">
@@ -828,7 +828,7 @@
 
 <?php if($mytheme['click']['is']): ?>
 <script type="text/javascript">
-	<?php $_628e062538bdf=explode(',',''.$mytheme['click']['url'].''); if(is_array($_628e062538bdf) || $_628e062538bdf instanceof \think\Collection || $_628e062538bdf instanceof \think\Paginator): if( count($_628e062538bdf)==0 ) : echo "" ;else: foreach($_628e062538bdf as $key=>$vo): ?>
+	<?php $_62945c5f9e267=explode(',',''.$mytheme['click']['url'].''); if(is_array($_62945c5f9e267) || $_62945c5f9e267 instanceof \think\Collection || $_62945c5f9e267 instanceof \think\Paginator): if( count($_62945c5f9e267)==0 ) : echo "" ;else: foreach($_62945c5f9e267 as $key=>$vo): ?>
 	MyTheme.Ajax('<?php echo $vo; ?>','get','json','',function(){});
 	<?php endforeach; endif; else: echo "" ;endif; ?>
 </script>
